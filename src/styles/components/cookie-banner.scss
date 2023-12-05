@@ -1,0 +1,316 @@
+$playpen-sans: "Playpen Sans", "Comic Sans MS"; //400
+$rubik: "Rubik", sans-serif; //400
+
+$sm-screen: 450px;
+$md-screen: 750px;
+$lg-screen: 1200px;
+
+$light-blue: #FAFDFE;
+$midnight: #181d31;
+
+@use "@styles/mixin";
+
+.cookiebanner {
+    width: calc(100vw - 4rem);
+    margin: 0 2rem;
+    padding: 0.8rem 1rem;
+    position: fixed;
+    bottom: 1rem;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    gap: .5rem;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 20;
+    background-color: white;
+    font-family: $rubik;
+    visibility: hidden;
+
+    @include mixin.containerShadow(3px);
+
+    &[data-consent="false"] {
+        visibility: visible;
+    }
+
+    span {
+        text-align: center;
+    }
+
+    a {
+        font-size: 1rem;
+        color: $midnight;
+
+        &:visited {
+            color: $midnight;
+        }
+    }
+
+    div {
+        display: flex;
+        gap: 1rem;
+        button {
+            padding: 0.5rem 1rem;
+            background-color: transparent;
+            border: none;
+            text-decoration: none;
+            font-family: $rubik;
+            font-size: 1rem;
+            color: $midnight;
+            cursor: pointer;
+        }
+
+        button:nth-child(1) {
+            text-decoration: underline;
+        }
+
+        button:nth-child(2) {
+            transition: box-shadow 0.2s ease-in-out;
+
+            @include mixin.containerShadow(3px);
+
+            @media (pointer: fine) {
+                &:hover {
+                    @include mixin.boxShadow(5px);
+                }
+            }
+
+            @media (prefers-reduced-motion) {
+                &:hover {
+                    @include mixin.boxShadow(3px);
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: $md-screen) {
+        width: calc(100vw - 1rem);
+        margin: 0 0.5rem;
+        padding: 1.5rem;
+        flex-direction: column;
+        gap: 1rem;
+        font-size: 0.8rem;
+
+        span {
+            font-size: 1rem;
+        }
+    }
+}
+
+#backdrop {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    background-color: transparent;
+    visibility: hidden;
+
+    &[data-open="true"] {
+        visibility: visible;
+        animation: backdropFade 0.2s ease-in-out forwards;
+    }
+}
+
+.modal {
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    justify-content: center;
+    align-items: center;
+
+    &[data-open="true"] {
+        display: flex;
+    }
+
+    dialog {
+        width: 30rem;
+        height: fit-content;
+        padding: 1rem;
+        position: relative;
+        font-family: $rubik;
+        overflow-x: hidden;
+        background-color: $light-blue;
+
+        @include mixin.containerShadow(4px);
+
+        h1 {
+            margin: 2rem 0 1.5rem 0;
+            text-align: center;
+        }
+
+        .close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        fieldset {
+            padding: 0.5rem;
+            background-color: white;
+
+            @include mixin.containerShadow(2px);
+
+            label {
+                display: flex;
+                justify-content: space-between;
+                cursor: pointer;
+
+                input {
+                    width: 25px;
+                    appearance: none;
+                    aspect-ratio: 1;
+                    border-radius: 8px;
+                    border: 2px solid $midnight;
+                    position: relative;
+                    transition: all 0.2s ease-in-out;
+                }
+
+                input::before {
+                    position: absolute;
+                    bottom: -4px;
+                    left: 1px;
+                    content: "✔";
+                    font-size: 25px;
+                    color: rgb(0, 0, 0);
+                    transform: scale(0);
+                    transition: all 0.2s ease-in-out;
+                }
+
+                input:checked::before {
+                    animation: spring 0.5s ease-in-out;
+                    transform: scale(1);
+                }
+            }
+
+            span {
+                font-size: 1.2rem;
+            }
+
+            p {
+                margin: 0.5rem 0 0 0.5rem;
+                font-family: $playpen-sans;
+            }
+        }
+
+        .buttons {
+            margin: 1rem 0 0.5rem 0;
+            display: flex;
+            justify-content: space-around;
+            gap: 1rem;
+
+            button {
+                background-color: transparent;
+                border: none;
+                text-decoration: none;
+                font-family: $rubik;
+                font-size: 1rem;
+                color: $midnight;
+                text-wrap: nowrap;
+                cursor: pointer;
+            }
+
+            button:nth-child(1),
+            button:nth-child(2) {
+                text-decoration: underline;
+            }
+
+            button:nth-child(3) {
+                padding: 0.6rem 1.5rem;
+                text-align: center;
+                background-color: white;
+                transition: box-shadow 0.2s ease-in-out;
+
+                @include mixin.containerShadow(3px);
+
+                @media (pointer: fine) {
+                    &:hover {
+                        @include mixin.boxShadow(5px);
+                    }
+                }
+
+                @media (prefers-reduced-motion) {
+                    &:hover {
+                        @include mixin.boxShadow(3px);
+                    }
+                }
+            }
+        }
+
+        @media screen and (max-width: $lg-screen) {
+            height: 70vh;
+        }
+
+        @media screen and (max-width: $sm-screen) {
+            width: 100%;
+            height: 80vh;
+            margin: 0 1rem;
+            padding: 0.5rem;
+
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 1.2rem;
+
+                button:nth-child(3) {
+                    width: 80%;
+                    padding: 0.8rem 1.5rem;
+                }
+            }
+
+            fieldset {
+                span {
+                    font-size: 1.1rem;
+                }
+                p {
+                    font-size: 0.9rem;
+                }
+            }
+        }
+    }
+}
+
+@keyframes spring {
+    0% {
+        transform: scale(0);
+    }
+
+    20% {
+        transform: scale(1.5);
+    }
+
+    40% {
+        transform: scale(0.5);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    70% {
+        transform: scale(1.2);
+    }
+
+    90% {
+        transform: scale(0.8);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

@@ -1,0 +1,68 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import Navbar from "@components/navbar/Navbar.astro";
+import ParticlesCanvas from "@components/particles/ParticlesCanvas";
+import IntroArrow from "@components/intro-arrow/IntroArrow.astro";
+import Footer from "@components/footer/Footer";
+
+import "@styles/pages/landing.scss";
+
+const seo = {
+	title: "Web Developer Portfolio | TMP",
+	description:
+		"Welcome to the portfolio of Phuong, a passionate web developer based in Graz, Styria, Austria. I specialize in creating beautiful and functional websites, ranging from simple web designs to complex applications. Explore my portfolio for recent examples of my work, and feel free to get in touch to discuss your project. Let's bring your ideas to life!",
+	keywords:
+		"Web developer portfolio, Web development Graz, Styria, Austria, Beautiful websites, Functional websites, Simple websites, Complex web applications, Recent work examples, Get in touch, Portfolio showcase, Dedicated web developer, Three.js, WebGL",
+};
+---
+
+<MainLayout seo={seo} lang="en">
+	<>
+		<header>
+			<Navbar lang="en" />
+		</header>
+		<main>
+			<ParticlesCanvas client:load lang="en" />
+			<div class="introduction">
+				<IntroArrow lang="en" />
+				<p>
+					I&#39;m a <span class="zigzag_underline">web developer</span
+					>
+					 who&#39;s enthusiastic about creating websites that are
+					both beautiful and functional. Whether you&#39;re looking
+					for a <span>simple website</span> or a <span
+						>complex web application</span
+					>, I can
+					<span>help</span> you bring your <span>ideas to life</span>.
+					Take a look at
+					<span class="no_break">
+						<a
+							href="/work"
+							aria-label="Go to work page and see my portfolio"
+						>
+							<span>m</span><span>y</span><span> p</span><span
+								>o</span
+							><span>r</span><span>t</span><span>f</span><span
+								>o</span
+							><span>l</span><span>i</span><span>o</span>
+						</a>
+					</span> to see some of my recent work and feel free to
+					<span class="no_break">
+						<a
+							href="/contact"
+							aria-label="Go to contact page and get in touch"
+						>
+							<span>g</span><span>e</span><span>t</span>
+							<span>&#32;i</span><span>n</span>
+							<span> t</span><span>o</span><span>u</span><span
+								>c</span
+							><span>h</span>
+						</a>
+					</span>
+					 if you&#39;d like to discuss your project.
+				</p>
+			</div>
+		</main>
+		<Footer lang="en" />
+	</>
+</MainLayout>

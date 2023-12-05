@@ -1,0 +1,275 @@
+$xs-screen: 375px;
+$sm-screen: 500px;
+$lg-screen: 1200px;
+
+$line-color: #181d31;
+$midnight: #181d31;
+$blue: rgb(163, 195, 249);
+$darkblue: #6c94ca;
+$light-blue: #fafdfe;
+
+$playpen-sans: "Playpen Sans", "Comic Sans MS"; //400
+
+@use "@styles/mixin";
+
+.navbar {
+    width: 100%;
+    padding: 2.5rem 0 0 0;
+    display: flex;
+    position: relative;
+    z-index: 10;
+    font-family: $playpen-sans;
+    background-color: $darkblue;
+    @include mixin.userSelect(none);
+
+    &__socials {
+        $height: 25px;
+
+        position: absolute;
+        top: 1rem;
+        right: 1.5rem;
+
+        ul {
+            display: flex;
+            gap: 0.5rem;
+            list-style: none;
+
+            li {
+                height: $height;
+
+                a {
+                    height: 100%;
+                    width: 100%;
+                    color: $midnight;
+                    font-size: 1rem;
+                    text-decoration: none;
+
+                    &:visited {
+                        color: $midnight;
+                    }
+                }
+            }
+        }
+
+        a > svg {
+            width: $height;
+            height: $height;
+            background-color: $light-blue;
+            transition: box-shadow 0.2s ease-in-out;
+
+            @include mixin.containerShadow(3px);
+
+            @media (pointer: fine) {
+                &:hover {
+                    @include mixin.boxShadow(4px);
+                }
+            }
+
+            @media (prefers-reduced-motion) {
+                &:hover {
+                    @include mixin.boxShadow(3px);
+                }
+            }
+        }
+    }
+
+    &__translate {
+        padding: 0.2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.3rem;
+        cursor: pointer;
+        background-color: $light-blue;
+        transition: box-shadow 0.2s ease-in-out;
+
+        & > svg {
+            height: 10px;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        @include mixin.containerShadow(3px);
+
+        @media (pointer: fine) {
+            &:hover {
+                @include mixin.boxShadow(4px);
+            }
+        }
+
+        @media (prefers-reduced-motion) {
+            &:hover {
+                @include mixin.boxShadow(3px);
+            }
+        }
+    }
+
+    .box-left,
+    .box-right {
+        width: 100%;
+        height: 3.2rem;
+        border-bottom: 1px solid $line-color;
+
+        @media screen and (max-width: $sm-screen) {
+            height: 2.8rem;
+            margin-top: 1.5rem;
+        }
+
+        @media screen and (max-width: $xs-screen) {
+            height: 2.3rem;
+        }
+    }
+
+    & > ul {
+        width: fit-content;
+        height: 3.2rem;
+        display: flex;
+        justify-content: center;
+
+        li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid $midnight;
+            white-space: nowrap;
+            cursor: pointer;
+            list-style: none;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+
+            &:not(.active) {
+                transition: font-size 0.2s ease-in-out;
+                @media (pointer: fine) {
+                    &:hover {
+                        font-size: 1.15rem;
+                    }
+                }
+
+                @media (prefers-reduced-motion) {
+                    &:hover {
+                        font-size: 1.1rem;
+                    }
+                }
+            }
+        }
+
+        a {
+            padding: 1rem 2rem;
+            color: $light-blue;
+            text-decoration: none;
+            &:visited {
+                color: $light-blue;
+            }
+        }
+
+        .active {
+            border-top: 1px solid $midnight;
+            border-left: 1px solid $midnight;
+            border-right: 1px solid $midnight;
+            border-bottom: none;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            background-color: $blue;
+            box-shadow: 3px 0 0 0 $midnight;
+
+            a {
+                color: $midnight;
+                &:visited {
+                    color: $midnight;
+                }
+            }
+        }
+
+        @media screen and (max-width: $lg-screen) {
+            margin-top: 0.5rem;
+            height: 2.7rem;
+            li > a {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media screen and (max-width: $sm-screen) {
+            margin-top: 1.5rem;
+            height: 2.8rem;
+            li > a {
+                padding: 0 clamp(0.4rem, 0.8rem, 1.1rem);
+                font-size: 0.8rem;
+            }
+        }
+        @media screen and (max-width: $xs-screen) {
+            height: 2.3rem;
+            li > a {
+                padding: 0 clamp(0rem, 0.8rem, 1rem);
+                font-size: 0.7rem;
+            }
+        }
+    }
+
+    &[data-path="/contact"],
+    &[data-path="/kontakt"] {
+        .active {
+            border-top: 1px solid $midnight;
+            border-left: 1px solid $midnight;
+            border-right: 1px solid $midnight;
+            border-bottom: none;
+            background-color: $light-blue;
+            box-shadow: 3px 0 0 0 $midnight;
+
+            a {
+                color: $midnight;
+                &:visited {
+                    color: $midnight;
+                }
+            }
+        }
+    }
+
+    &[data-path="/work"],
+    &[data-path="/projekte"] {
+        $light-blue: #fafdfe;
+
+        @mixin containerShadowWhite($size) {
+            border: 1px solid $light-blue;
+            box-shadow: $size $size 0px 0px $light-blue;
+        }
+
+        @mixin boxShadowWhite($size) {
+            box-shadow: $size $size 0px 0px $light-blue;
+        }
+
+        .box-left,
+        .box-right {
+            border-bottom: 1px solid black;
+        }
+
+        & > ul {
+            li {
+                border-bottom: 1px solid black;
+            }
+        }
+
+        .active {
+            border-top: 1px solid black;
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+            border-bottom: none;
+            background-color: $midnight;
+            box-shadow: 3px 0 0 0 black;
+
+            a {
+                color: $light-blue;
+                &:visited {
+                    color: $light-blue;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 700px) {
+        padding: 3rem 0 0 0;
+    }
+    @media screen and (max-width: $sm-screen) {
+        padding: 2rem 0 0 0;
+    }
+}

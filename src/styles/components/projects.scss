@@ -1,0 +1,164 @@
+$papayawhip-light: rgba(255, 239, 213, 0.2);
+
+$rubik: "Rubik", sans-serif; //400
+$playpen-sans: "Playpen Sans", "Comic Sans MS"; //400
+$ubuntu: "Ubuntu", sans-serif; //400
+
+$sm-screen: 500px;
+$md-screen: 800px;
+$lg-screen: 1200px;
+
+$midnight: #181d31;
+
+@use "@styles/mixin";
+
+html {
+    overscroll-behavior-y: contain;
+}
+
+body {
+    background-color: white !important;
+}
+
+header {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 4px solid $midnight;
+
+    h1,
+    h2,
+    span {
+        font-family: $ubuntu;
+        font-size: 2rem;
+    }
+
+    div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: end;
+        text-align: right;
+    }
+
+    @media screen and (max-width: $sm-screen) {
+        h1 {
+            font-size: 1.5rem;
+        }
+        h2 {
+            font-size: 1rem;
+        }
+
+        span {
+            font-size: 1rem;
+        }
+    }
+}
+
+.list {
+    ul {
+        margin: 2rem 0 0 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+        list-style: none;
+
+        li {
+            padding: 0.5rem 1.25rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            background-color: $papayawhip-light;
+
+            @include mixin.containerShadow(4px);
+        }
+
+        @media screen and (max-width: $sm-screen) {
+            margin: 1rem 0 1.5rem 0;
+            gap: 1rem;
+        }
+    }
+}
+
+main {
+    margin: 0 2rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    font-family: $ubuntu;
+
+    a {
+        display: inline-block;
+        margin: 2rem 0;
+        padding: 0.5rem 1.25rem;
+        font-size: 2rem;
+        text-decoration: none;
+        text-transform: uppercase;
+        background-color: $papayawhip-light;
+        letter-spacing: 3px;
+        color: $midnight;
+      
+        transition: box-shadow 0.2s ease-in-out;
+
+        @include mixin.containerShadow(4px);
+
+        @media (pointer: fine) {
+            &:hover {
+                @include mixin.containerShadow(6px);
+            }
+        }
+
+        &:visited {
+            color: $midnight;
+        }
+    }
+
+    & > .box:last-child {
+        margin-top: 1rem;
+    }
+
+    @media screen and (max-width: $sm-screen) {
+        margin: 0 1rem 1rem 1rem;
+    }
+}
+
+.box {
+    max-width: 900px;
+    padding: 1.5rem;
+    background-color: $papayawhip-light;
+
+    @include mixin.containerShadow(4px);
+
+    div {
+        h3 {
+            font-family: $ubuntu;
+        }
+        &:not(:first-child) {
+            h3 {
+                margin: 1rem 0;
+                letter-spacing: 1px;
+            }
+        }
+
+        &:first-child {
+            h3 {
+                margin-bottom: 1rem;
+            }
+        }
+
+        p {
+            margin: 0.5rem 0 0 0.5rem;
+            font-family: $playpen-sans;
+            line-height: 1.5rem;
+            white-space: pre-wrap;
+        }
+    }
+
+    @media screen and (max-width: $sm-screen) {
+        width: fit-content;
+    }
+}

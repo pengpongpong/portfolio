@@ -1,0 +1,38 @@
+$midnight: #181d31;
+
+@mixin containerShadow($size) {
+    border: 1px solid $midnight;
+    box-shadow: $size $size 0px 0px $midnight;
+}
+
+@mixin boxShadow($size) {
+    box-shadow: $size $size 0px 0px $midnight;
+}
+
+@mixin jumpUp($time) {
+    animation: jump 0.5s $time ease-in-out;
+}
+
+@keyframes jump {
+    0% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-0.2rem);
+    }
+    80% {
+        transform: translateY(0.1rem);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@mixin userSelect($state) {
+    -webkit-touch-callout: $state; /* iOS Safari */
+    -webkit-user-select: $state; /* Safari, Chrome, Opera, Samsung */
+    -khtml-user-select: $state; /* Konqueror HTML */
+    -moz-user-select: $state; /* Firefox */
+    -ms-user-select: $state; /* Edge, IE */
+    user-select: $state; /* Modern browsers */
+}

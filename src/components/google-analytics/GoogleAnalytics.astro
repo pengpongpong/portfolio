@@ -1,0 +1,68 @@
+---
+const {consent} = Astro.props
+---
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-41LNP2ED5N"></script>
+<script is:raw>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag("js", new Date());
+
+    gtag("config", "G-41LNP2ED5N");
+</script>
+
+ {/* advertisement consent */}
+
+ {consent.advertisementCookie?.value === "true" 
+ ? <script is:raw>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag("consent", "default", {
+        "ad_storage": "granted",
+    });
+ </script>
+ : <script is:raw>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag("consent", "default", {
+        "ad_storage": "denied",
+    });
+ </script>}
+
+{/* analytics consent */}
+
+ {consent.analyticsCookie?.value === "true" 
+ ? <script is:raw>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag("consent", "default", {
+        "analytics_storage": "granted",
+    });
+ </script>
+ : <script is:raw>
+    window.dataLayer = window.dataLayer || [];
+    
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag("consent", "default", {
+        "analytics_storage": "denied",
+    });
+ </script>}

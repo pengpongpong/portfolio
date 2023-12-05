@@ -1,0 +1,29 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import Navbar from "@components/navbar/Navbar.astro";
+import { Contact } from "@components/contact/ContactForm";
+import ContactSocials from "@components/contact/ContactSocials.astro";
+import Footer from "@components/footer/Footer";
+
+import "@styles/pages/contact.scss";
+
+const seo = {
+    title: "Contact | TMP",
+    description:
+        "Connect with Phuong through LinkedIn or GitHub. Reach out via email or use the contact form. I'm eager to hear from you and discuss opportunities for collaboration. Explore various communication options to stay in touch.",
+    keywords:
+        "Contact information, LinkedIn profile, GitHub profile, Email contact, Contact form, Get in touch, Reach out, Professional networking, Online presence, Communication options, Collaborative opportunities",
+};
+
+const url = import.meta.env.AWS_URL;
+const api = import.meta.env.AWS_KEY;
+---
+
+<MainLayout seo={seo} lang="en" path="hide">
+    <Navbar lang="en" />
+    <main>
+        <ContactSocials lang="en" />
+        <Contact lang="en" apiData={{ url, api }} client:visible />
+    </main>
+    <Footer lang="en" path="contact"/>
+</MainLayout>

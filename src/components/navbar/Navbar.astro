@@ -1,0 +1,73 @@
+---
+import NavbarSocials from "./NavbarSocials.astro";
+import LanguageSwitch from "./LanguageSwitch.astro";
+import type { Props } from "@utils/utils";
+
+import "@styles/components/navbar.scss";
+
+const { pathname } = Astro.url;
+const { lang }: Props = Astro.props;
+
+const navDataEN = {
+  home: { url: "/", title: "Home" },
+  work: { url: "/work", title: "Work" },
+  aboutMe: { url: "/about-me", title: "About Me" },
+  contact: { url: "/contact", title: "Contact" },
+};
+
+const navDataDE = {
+  home: { url: "/de", title: "Home" },
+  work: { url: "/projekte", title: "Projekte" },
+  aboutMe: { url: "/ueber-mich", title: "Über Mich" },
+  contact: { url: "/kontakt", title: "Kontakt" },
+};
+
+const navData = lang === "en" ? navDataEN : navDataDE;
+---
+
+<nav class="navbar" data-path={pathname}>
+  <div class="navbar__socials">
+    <ul>
+      <LanguageSwitch lang={lang}/>
+      <NavbarSocials lang={lang} />
+    </ul>
+  </div>
+
+  <div class="box-left"></div>
+
+  <ul>
+    <li class={pathname === navData.home.url ? "active" : ""}>
+      <a
+        href={navData.home.url}
+        aria-label={lang === "en" ? "Go to home page" : "Gehe zur Home Seite"}
+        >{navData.home.title}</a
+      >
+    </li>
+    <li class={pathname === navData.work.url ? "active" : ""}>
+      <a
+        href={navData.work.url}
+        aria-label={lang === "en"
+          ? "Go to work page"
+          : "Gehe zur Projekte Seite"}>{navData.work.title}</a
+      >
+    </li>
+    <li class={pathname === navData.aboutMe.url ? "active" : ""}>
+      <a
+        href={navData.aboutMe.url}
+        aria-label={lang === "en"
+          ? "Go to about me page"
+          : "Gehe zur über mich Seite"}>{navData.aboutMe.title}</a
+      >
+    </li>
+    <li class={pathname === navData.contact.url ? "active" : ""}>
+      <a
+        href={navData.contact.url}
+        aria-label={lang === "en"
+          ? "Go to contact page"
+          : "Gehe zur Kontakt Seite"}>{navData.contact.title}</a
+      >
+    </li>
+  </ul>
+
+  <div class="box-right"></div>
+</nav>

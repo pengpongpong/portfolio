@@ -1,0 +1,39 @@
+---
+import type { Props } from "@utils/utils";
+
+const { lang }: Props = Astro.props;
+---
+
+<div class="socials">
+    <a
+        href="https://linkedin.com/in/tmphuong/"
+        rel="noopener noreferrer"
+        target="_blank"
+        aria-label={lang === "en"
+            ? "Visit LinkedIn profile"
+            : "Besuche LinkedIn Profil"}
+    >
+        <img src="/icons/bxl-linkedin.svg" alt="LinkedIn icon" />
+        <span class="socials__title">
+            <span>L</span><span>i</span><span>n</span><span>k</span><span
+                >e</span
+            ><span>d</span><span>I</span><span>n</span>
+        </span>
+    </a>
+
+    <a
+        href="https://github.com/pengpongpong"
+        rel="noopener noreferrer"
+        target="_blank"
+        aria-label={lang === "en"
+            ? "Visit Github profile"
+            : "Besuche Github Profil"}
+    >
+        <img src="/icons/bxl-github.svg" alt="Github icon" />
+        <span class="socials__title">
+            <span>G</span><span>i</span><span>t</span><span>h</span><span
+                >u</span
+            ><span>b</span>
+        </span>
+    </a>
+</div>

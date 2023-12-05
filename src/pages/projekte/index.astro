@@ -1,0 +1,25 @@
+---
+import Navbar from "@components/navbar/Navbar.astro";
+import MainLayout from "@layouts/MainLayout.astro";
+import { FolderCanvas } from "@components/folder/FolderCanvas";
+import { queryPreviewProjects } from "@utils/query";
+
+import "@styles/pages/work.scss";
+
+const data = await queryPreviewProjects();
+
+const seo = {
+    title: "Webentwicklungsprojekte | TMP",
+    description:
+        "Tauchen Sie ein in meine Sammlung von Webentwicklungsprojekten, präsentiert in einer ansprechenden 3D-Animation. Erleben Sie die Verschmelzung von Kreativität und Technologie. Entdecken Sie beeindruckende Projekte und interaktive Webdesign-Demonstrationen in meinem Portfolio.",
+    keywords:
+        "Webentwicklungsprojekte, 3D-Präsentation, Ordnerstil, Kreativität und Technologie, Beeindruckende Projekte, Webentwicklungswerke, Interaktive Präsentation, Portfolio von Webprojekten, Visuell ansprechend, Webdesign-Demonstration, Three.js, WebGL",
+};
+---
+
+<MainLayout seo={seo} path="work">
+    <Navbar lang="de" />
+    <main>
+        <FolderCanvas lang="de" data={data} client:load />
+    </main>
+</MainLayout>

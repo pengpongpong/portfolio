@@ -1,0 +1,73 @@
+---
+import "@styles/components/projects.scss";
+import type { Locale } from "@utils/utils";
+
+type Props = {
+    header: {
+        headline: string;
+        year: number;
+        type: string;
+    };
+    list: { title: string }[];
+    url: string;
+    data: {
+        responsibility: string;
+        role: string;
+        url: string;
+        about: string;
+    };
+    lang: Locale;
+};
+const { header, list, url, data, lang }: Props = Astro.props;
+---
+
+<header>
+    <h1>{header?.headline}</h1>
+    <div>
+        <span>{header?.year}</span>
+        <h2>{header?.type}</h2>
+    </div>
+</header>
+<main>
+    <section class="list">
+        <ul>
+            {
+                list.map((tag: { title: string }) => {
+                    return (
+                        <li>
+                            <div>{tag.title}</div>
+                        </li>
+                    );
+                })
+            }
+        </ul>
+    </section>
+    <a
+        href={`https://${url}`}
+        target="_blank"
+        rel="noreferrer noopener"
+        aria-label={`Visit live page for Project ${header?.headline}`}
+    >
+        {lang === "en" ? "View live" : "Live sehen"}
+    </a>
+    <section class="box">
+        <div>
+            <h3>{lang === "en" ? "Responsibility:" : "Verantwortung:"}</h3>
+            <p>{data?.responsibility}</p>
+        </div>
+        <div>
+            <h3>{lang === "en" ? "Role:" : "Rolle:"}</h3>
+            <p>{data?.role}</p>
+        </div>
+        <div>
+            <h3>Website:</h3>
+            <p>{data?.url}</p>
+        </div>
+    </section>
+    <section class="box">
+        <div>
+            <h3>{lang === "en" ? "About:" : "Über das Projekt:"}</h3>
+            <p>{data?.about}</p>
+        </div>
+    </section>
+</main>

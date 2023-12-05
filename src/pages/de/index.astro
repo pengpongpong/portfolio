@@ -1,0 +1,75 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import Navbar from "@components/navbar/Navbar.astro";
+import ParticlesCanvas from "@components/particles/ParticlesCanvas";
+import IntroArrow from "@components/intro-arrow/IntroArrow.astro";
+import Footer from "@components/footer/Footer";
+
+import "@styles/pages/landing.scss";
+
+const seo = {
+    title: "Webentwickler Portfolio | TMP",
+    description:
+        "Willkommen im Portfolio von Phuong, einem leidenschaftlichen Webentwickler mit Sitz in Graz, Steiermark, Österreich. Ich bin spezialisiert auf die Erstellung von schönen und funktionalen Websites, von einfachen Designs bis hin zu komplexen Anwendungen. Entdecken Sie mein Portfolio für aktuelle Beispiele meiner Arbeit und kontaktieren Sie mich gerne, um Ihr Projekt zu besprechen. Lassen Sie uns Ihre Ideen gemeinsam umsetzen!",
+    keywords:
+        "Webentwickler Portfolio, Webentwicklung Graz, Steiermark, Österreich, Schöne Websites, Funktionale Websites, Einfache Websites, Komplexe Webanwendungen, Beispiele für aktuelle Arbeiten, Kontakt aufnehmen, Portfolio präsentieren, Engagierter Webentwickler, Three.js, WebGL",
+};
+---
+
+<MainLayout seo={seo} lang="de">
+    <>
+        <header>
+            <Navbar lang="de" />
+        </header>
+        <main>
+            <ParticlesCanvas client:load lang="de" />
+            <div class="introduction">
+                <IntroArrow lang="de" />
+                <p>
+                    Ich bin ein begeisterter <span class="zigzag_underline"
+                        >Webentwickler</span
+                    >, der darauf aus ist, Websites zu erstellen, die sowohl
+                    schön als auch funktional sind. Egal, ob Sie eine <span>
+                        einfache Website
+                    </span> oder eine <span>komplexe Webanwendung</span> suchen,
+                    ich kann Ihnen dabei <span>helfen</span>, Ihre <span
+                        >Ideen zum Leben</span
+                    > zu erwecken. Werfen Sie einen Blick auf mein <span
+                        class="no_break"
+                    >
+                        <a
+                            href="/projekte"
+                            aria-label="Gehe zur Portfolio Seite"
+                        >
+                            <span>P</span><span>o</span><span>r</span><span
+                                >t</span
+                            ><span>f</span><span>o</span><span>l</span><span
+                                >i</span
+                            ><span>o</span>
+                        </a>
+                    </span>, um einige meiner letzten Arbeiten zu sehen, und
+                    zögern Sie nicht, sich bei Interesse an Ihrem Projekt mit
+                    mir <span class="no_break">
+                        <a
+                            href="/kontakt"
+                            aria-label="Gehe zur Kontakt Seite, um mit mir in Verbindung zu setzen"
+                        >
+                            <span>i</span><span>n</span><span> V</span><span
+                                >e</span
+                            ><span>r</span><span>b</span><span>i</span><span
+                                >n</span
+                            ><span>d</span><span>u</span><span>n</span><span
+                                >g</span
+                            ><span> z</span><span>u</span><span> s</span><span
+                                >e</span
+                            ><span>t</span><span>z</span><span>e</span><span
+                                >n</span
+                            ></a
+                        >
+                    </span>.
+                </p>
+            </div>
+        </main>
+        <Footer lang="de" />
+    </>
+</MainLayout>

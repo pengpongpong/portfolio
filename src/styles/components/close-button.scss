@@ -1,0 +1,19 @@
+@use "@styles/mixin";
+
+.svg-close {
+    transition: box-shadow 0.2s ease-in-out;
+
+    @include mixin.containerShadow(2px);
+
+    @media (pointer: fine) {
+        &:hover {
+            @include mixin.containerShadow(3px);
+        }
+    }
+
+    @media (prefers-reduced-motion) {
+        &:hover {
+            @include mixin.containerShadow(2px);
+        }
+    }
+}

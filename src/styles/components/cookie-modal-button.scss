@@ -1,0 +1,27 @@
+$rubik: "Rubik", sans-serif; //400
+
+@use "@styles/mixin";
+
+.cookie-modal-button {
+    width: fit-content;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    background-color: white;
+    font-family: $rubik;
+    font-size: 1.2rem;
+    transition: box-shadow 0.2s ease-in-out;
+
+    @include mixin.containerShadow(3px);
+
+    @media (pointer: fine) {
+        &:hover {
+            @include mixin.boxShadow(5px);
+        }
+    }
+
+    @media (prefers-reduced-motion) {
+        &:hover {
+            @include mixin.boxShadow(3px);
+        }
+    }
+}

@@ -1,0 +1,152 @@
+$kalam: "Kalam", sans-serif; //400
+
+$sm-screen: 500px;
+$md-screen: 750px;
+$md2-screen: 1000px;
+$lg-screen: 1200px;
+$lg2-screen: 1600px;
+$xl-screen: 2000px;
+
+$blue: rgb(163, 195, 249);
+$white: white;
+
+@use "@styles/mixin";
+
+body {
+    min-height: 100vh;
+
+    & > div {
+        background-color: $blue;
+    }
+}
+
+#gridCanvas[data-loaded="true"] {
+    @include mixin.containerShadow(4px);
+
+    @media screen and (max-width: 750px) {
+        border: none;
+        box-shadow: none;
+    }
+}
+
+.about {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+    align-items: center;
+    text-align: center;
+    font-family: $kalam;
+    background-color: $blue;
+    overflow: hidden;
+
+    & > section {
+        max-width: 60vw;
+        margin: 2rem 0;
+        padding: 2rem;
+        background-color: $white;
+        @include mixin.containerShadow(4px);
+    }
+
+    h1 {
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+    }
+
+    p {
+        max-width: 95%;
+        margin: 0 auto;
+        &:nth-child(3) {
+            margin: 2rem auto;
+        }
+    }
+
+    div {
+        width: 100%;
+        overflow-x: visible;
+    }
+
+    img {
+        width: 20%;
+        margin: 4rem 0;
+        font-style: italic;
+
+        @include mixin.containerShadow(4px);
+    }
+
+    // 2000
+    @media screen and (max-width: $xl-screen) {
+        & > section {
+            margin: 0;
+            max-width: 55vw;
+        }
+    }
+
+    // 1600
+    @media screen and (max-width: $lg2-screen) {
+        margin: 0 auto;
+        & > section {
+            max-width: 65vw;
+        }
+
+        img {
+            margin: 3rem 0;
+            width: 25%;
+        }
+    }
+
+    //1200
+    @media screen and (max-width: $lg-screen) {
+        & > section {
+            max-width: 70vw;
+        }
+
+        img {
+            margin: 2rem 0;
+            width: 30%;
+        }
+    }
+
+    // 900
+    @media screen and (max-width: $md2-screen) {
+        & > section {
+            max-width: 90vw;
+        }
+
+        img {
+            width: 35%;
+        }
+    }
+
+    // 750
+    @media screen and (max-width: $md-screen) {
+        padding: 0 2rem;
+        & > section {
+            max-width: 100%;
+        }
+
+        img {
+            width: 50%;
+        }
+    }
+
+    // 450
+    @media screen and (max-width: $sm-screen) {
+        padding: 0 1rem;
+
+        & > section {
+            padding: 1.5rem;
+        }
+
+        p {
+            font-size: 0.9rem;
+            &:nth-child(3) {
+                margin: 1rem auto;
+            }
+        }
+
+        img {
+            width: 70%;
+        }
+    }
+}

@@ -1,0 +1,51 @@
+$rubik: "Rubik", sans-serif; //400
+$playpen-sans: "Playpen Sans", "Comic Sans MS"; //400
+
+$blue: rgb(163, 195, 249);
+$white: white;
+
+@use "@styles/mixin";
+
+main {
+    display: grid;
+    place-items: center;
+    background-color: $blue;
+}
+
+.error {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background-color: $white;
+
+    @include mixin.containerShadow(4px);
+
+    header {
+        margin-bottom: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    h1 {
+        font-family: $rubik;
+        font-size: 2rem;
+    }
+    p {
+        font-family: $playpen-sans;
+        font-size: 1.5rem;
+    }
+    span {
+        font-family: $playpen-sans;
+        font-size: 1rem;
+    }
+
+    a {
+        color: #181d31;
+    }
+}

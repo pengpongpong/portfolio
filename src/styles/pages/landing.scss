@@ -1,0 +1,231 @@
+$indie-flower: "Indie Flower", "Bradley Hand"; //400
+
+$brown: #cd5c08;
+$turquoise: #3876bf;
+$blue: rgb(163, 195, 249);
+$white: white;
+$midnight: #181d31;
+
+$xs-screen: 411px;
+$sm-screen: 450px;
+$md-screen: 750px;
+$md2-screen: 1200px;
+$lg-screen: 1600px;
+$xl-screen: 2000px;
+
+@use "@styles/mixin";
+
+root {
+    --widthModel: 850px;
+    --distanceMarginTop: 80px;
+    --actual: clamp(200px, var(--distanceMarginTop), 250px);
+}
+
+@mixin applyMarginTop($distance: null) {
+    @if $distance {
+        margin-top: calc(#{$distance} + 35px);
+    }
+}
+
+@mixin showTextGradient() {
+    background-position: top left 100%;
+    border-image: linear-gradient(to left, $brown 0%, $turquoise 100%) 1;
+}
+
+html,
+body {
+    align-items: center;
+    overscroll-behavior-y: none;
+    background-color: $blue;
+}
+
+#particleCanvas {
+    @include mixin.userSelect(none);
+}
+
+.introduction {
+    margin: 0 1.5rem 2rem 1.5rem;
+    padding: 1.4rem 2rem 2rem 2rem;
+    width: fit-content;
+    max-width: 850px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    color: $midnight;
+    background-color: $white;
+
+    @include mixin.userSelect(none);
+    @include mixin.containerShadow(4px);
+    @include applyMarginTop(calc(#{var(--distanceMarginTop, 200px)} + 4rem));
+
+    &__info {
+        width: fit-content;
+        height: 1rem;
+        position: absolute;
+        top: 0.5rem;
+        right: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        span {
+            font-family: $indie-flower;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        svg {
+            width: 50px;
+            position: relative;
+            top: -1rem;
+            transform: scaleX(-1) rotate(-80deg);
+        }
+    }
+
+    p {
+        width: 100%;
+        font-family: $indie-flower;
+        font-size: 1.2rem;
+        line-height: 2.5rem;
+    }
+
+    p > span:not(.zigzag_underline):not(.no_break) {
+        margin: 0 0.1rem;
+        display: inline-block;
+        border-top-width: 0;
+        border-left-width: 0;
+        border-right-width: 0;
+        border-bottom: 2px solid;
+        line-height: 1.5rem;
+        letter-spacing: 1.5px;
+        position: relative;
+        z-index: 10;
+
+        color: $midnight;
+        background: $midnight;
+        background-image: linear-gradient(to right, $midnight, $midnight 33.33%, $brown 66.66%, $turquoise);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 300% 100%;
+        background-position: top left;
+        transition: background-position 0.2s ease-in-out;
+
+        @media (hover: none) {
+            @include showTextGradient();
+        }
+
+        @media (pointer: fine) {
+            &:hover {
+                @include showTextGradient();
+            }
+        }
+    }
+
+    a {
+        color: $midnight;
+        display: inline-block;
+        line-height: 1.5rem;
+        border-bottom: 4px double $midnight !important;
+        border-style: none;
+        text-decoration: none;
+        transition: font-size 0.2s ease-in-out;
+        position: relative;
+        z-index: 20;
+
+        &:visited {
+            color: $midnight;
+        }
+
+        span {
+            display: inline-block;
+            white-space: pre;
+            pointer-events: none;
+
+            border-style: none;
+            text-decoration: none;
+            border-bottom: 0px solid;
+        }
+
+        @media (pointer: fine) {
+            &:hover {
+                @for $i from 1 through 20 {
+                    span:nth-child(#{$i}) {
+                        @include mixin.jumpUp(calc(0.1s * #{$i}));
+                    }
+                }
+
+                @media (prefers-reduced-motion) {
+                    span:nth-child(n) {
+                        animation: none;
+                    }
+                }
+            }
+        }
+    }
+
+    // 2000
+    @media screen and (max-width: $xl-screen) {
+        @include applyMarginTop(#{var(--distanceMarginTop, 400px)});
+    }
+
+    // 1600
+    @media screen and (max-width: $lg-screen) {
+        @include applyMarginTop(#{var(--distanceMarginTop, 300px)});
+    }
+
+    // 1200
+    @media screen and (max-width: $md2-screen) {
+        max-width: 750px;
+        @include applyMarginTop(#{var(--distanceMarginTop, 300px)});
+    }
+
+    // 750
+    @media screen and (max-width: $md-screen) {
+        max-width: 550px;
+        @include applyMarginTop(#{var(--distanceMarginTop, 300px)});
+    }
+
+    // 450
+    @media screen and (max-width: $sm-screen) {
+        margin: auto 2rem 2rem 2rem;
+
+        @include applyMarginTop(clamp(200px, var(--distanceMarginTop, 220px), 230px));
+    }
+
+    // 411
+    @media screen and (max-width: $xs-screen) {
+        p {
+            font-size: .9rem;
+            line-height: 2.1rem;
+        }
+
+        @include applyMarginTop(clamp(200px, var(--distanceMarginTop, 210px), 230px));
+    }
+}
+
+.zigzag_underline {
+    letter-spacing: 1.5px;
+    padding-bottom: 0.55rem;
+    background-image: repeating-linear-gradient(-45deg, $midnight, $midnight 1px, transparent 0, transparent 12px),
+        repeating-linear-gradient(45deg, $midnight, $midnight 1px, transparent 0, transparent 12px);
+    background-size: 16.5px 9px;
+    background-position: 0 105%;
+    background-repeat: repeat-x;
+    animation: underline 1s infinite linear;
+
+    @media (prefers-reduced-motion) {
+        animation: none;
+    }
+}
+
+@keyframes underline {
+    from {
+        background-position-x: 0px;
+    }
+    to {
+        background-position-x: 16.5px;
+    }
+}

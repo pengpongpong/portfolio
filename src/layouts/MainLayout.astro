@@ -1,0 +1,84 @@
+---
+import { CookieBanner } from "@components/cookie-banner/CookieBanner";
+import { ScreenRotateBanner } from "@components/screenrotate-banner/ScreenRotateBanner"
+import GoogleAnalytics from "@components/google-analytics/GoogleAnalytics.astro";
+
+import "@styles/global.scss";
+
+const { path, seo, lang = "en" } = Astro.props;
+const {pathname} = Astro.url;
+
+const analyticsCookie = Astro.cookies.get("consent-analytics");
+const advertisementCookie = Astro.cookies.get("consent-advertise");
+
+
+export type Seo = {
+    title: string;
+    description: string;
+    keywords: string;
+    image?: {
+        url: string;
+        alt: string;
+        width: string;
+        height: string;
+    };
+};
+
+---
+
+<html lang={lang === "en" ? "en" : "de"}>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="generator" content={Astro.generator} />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2b5797">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="sitemap" href="/sitemap-index.xml" />
+        <link rel="canonical" href={`https://tranmp.dev${pathname}`} />
+
+        <meta name="description" content={seo.description} />
+        <meta name="keywords" content={seo.keywords} />
+        <meta name="author" content="TMP" />
+        
+        <meta name="og:title" content={seo.title} />
+        <meta name="og:description" content={seo.description} />
+        <meta name="og:url" content={`https://tranmp.dev${pathname}`} />
+        <meta name="og:site_name" content="TMP Portfolio" />
+        <meta name="og:locale" content={lang === "en" ? "en" : "de"} />
+        <meta name="og:type" content="website" />
+    
+        {seo?.image?.url 
+        ? 
+          <meta property="og:image" content={seo?.image?.url}/>
+          <meta property="og:image:width" content={seo?.image?.width} />
+          <meta property="og:image:height" content={seo?.image?.height} />
+          <meta property="og:image:alt" content={seo?.image?.alt} />
+          : ""
+          }
+
+        <meta name="robots" content="index, follow, nocache" />
+        <meta
+          name="googlebot"
+          content="index, follow, noimageindex, max-video-preview:-1, max-image-preview:large, max-snippet:-1"
+        />
+
+        <title>{seo.title}</title>
+        
+        <GoogleAnalytics consent={{ analyticsCookie, advertisementCookie }} />
+    </head>
+    <body data-path={`${path}`}>
+        <ScreenRotateBanner lang={lang} path={path} client:visible />
+        <slot />
+        <CookieBanner lang={lang} noBanner={pathname.startsWith("/projects/")} client:idle />
+    </body>
+</html>

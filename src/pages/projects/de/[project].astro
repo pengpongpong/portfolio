@@ -1,0 +1,45 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import Project from "@components/project/Project.astro";
+
+import { queryProjects, type Props } from "@utils/query";
+
+// static paths
+export async function getStaticPaths() {
+    const data = await queryProjects("de");
+    return data.map((projectData: Props["projectData"]) => {
+        return {
+            params: { project: projectData?.slug },
+            props: { projectData: projectData },
+        };
+    });
+}
+
+const { projectData }: Props = Astro.props;
+
+const seo = {
+    title: `Projekt - ${projectData?.title} | TMP`,
+    description: `Webseite für ${projectData?.subTitleDE}`,
+    keywords: `Webseite, Projekt, Web Entwicklung ${projectData?.title}`,
+};
+
+export const prerender = true;
+---
+
+<MainLayout seo={seo} lang="de" data-path="project">
+    {
+        projectData ? (
+            <Project
+                header={{
+                    headline: projectData.subTitleDE!,
+                    year: new Date(projectData?.year).getFullYear(),
+                    type: projectData.typeDE!,
+                }}
+                list={projectData.stack}
+                url={projectData.dataDE?.url!}
+                data={projectData.dataDE!}
+                lang="de"
+            />
+        ) : null
+    }
+</MainLayout>

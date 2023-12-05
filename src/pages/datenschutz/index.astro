@@ -1,0 +1,134 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import Navbar from "@components/navbar/Navbar.astro";
+import Footer from "@components/footer/Footer";
+import { CookieModalButton } from "@components/cookie-banner/CookieModalButton";
+
+import "@styles/pages/privacy.scss";
+
+const seo = {
+    title: "Datenschutz | TMP",
+    description:
+        "Erfahren Sie mehr über mein Engagement für den Schutz Ihrer Privatsphäre, meine Datenschutzmaßnahmen und wie ich Cookies einsetze, um Ihr Browsing-Erlebnis auf TMP zu verbessern. Entdecken Sie meine Datenschutzrichtlinien, das Cookie-Management und Informationen zu Google Analytics.",
+    keywords:
+        "Datenschutzrichtlinie, Cookie-Nutzung, Informationen zu Google Analytics, Online-Datenschutz, Datenschutzrichtlinien, Cookie-Verwaltung, Sicherheit der Benutzerdaten, Webanalytik, Datenschutzmaßnahmen",
+};
+---
+
+<MainLayout seo={seo} lang="de">
+    <Navbar lang="de" />
+    <main class="privacy">
+        <h1>Datenschutz</h1>
+        <p>
+            Ich freue mich über Ihr Interesse an meiner Website. Der Schutz
+            Ihrer Privatsphäre ist ist für mich von großer Bedeutung. Im
+            Folgenden informiere ich Sie ausführlich darüber, wie wir mit Ihren
+            Daten umgehen:
+        </p>
+
+        <ul>
+            <li>
+                <h2>
+                    Erhebung, Verarbeitung und Nutzung von personenbezogenen
+                    Daten
+                </h2>
+                <p>
+                    Sie können meine Website besuchen, ohne irgendwelche
+                    persönlichen Informationen. Wir speichern lediglich
+                    Zugriffsdaten in Server-Logfiles, wie z.B. den Namen der
+                    abgerufenen Datei, Datum und Uhrzeit des Datum und Uhrzeit
+                    des Abrufs, übertragene Datenmenge und der anfragende
+                    Anbieter. Diese Daten werden ausschließlich zur
+                    Sicherstellung des reibungslosen Betrieb der Website zu
+                    gewährleisten und den Service zu verbessern. Sie erlauben
+                    keine Rückschlüsse auf Ihre Identität zu ziehen.
+                </p>
+            </li>
+            <li>
+                <h2>Cookies</h2>
+                <p>
+                    Diese Website verwendet an mehreren Stellen Cookies. Cookies
+                    sind kleine Textdateien, die auf Ihrem Computer abgelegt
+                    werden und die Ihrem Browser gespeichert werden. Sie dienen
+                    dazu, unser Angebot nutzerfreundlicher nutzerfreundlicher,
+                    effektiver und sicherer zu machen. Außerdem ermöglichen
+                    Cookies ermöglichen es unseren Systemen, Ihren Browser zu
+                    erkennen und Ihnen Dienste anzubieten. Cookies enthalten
+                    keine personenbezogenen Daten.
+                </p>
+            </li>
+            <li>
+                <h2>Google Analytics</h2>
+                <p>
+                    Diese Website benutzt Google Analytics, einen
+                    Webanalysedienst von Google Inc. 1600 Amphitheatre Parkway,
+                    Mountain View, CA 94043 View, CA 94043, USA ("Google").
+                    Google Analytics verwendet auch Cookies (wie in Abschnitt 2
+                    erwähnt). Die Informationen Die durch den Cookie erzeugten
+                    Informationen über Ihre Benutzung dieser Website,
+                    einschließlich Ihrer IP-Adresse, werden an einen Server von
+                    Google in den USA übertragen und dort gespeichert.
+                </p>
+                <p>
+                    Google wird diese Informationen benutzen, um Ihre Nutzung
+                    der Website auszuwerten Website auszuwerten, um Reports über
+                    die Websiteaktivitäten für die Websitebetreiber
+                    zusammenzustellen Website-Betreiber zu erstellen und weitere
+                    mit der Websitenutzung Nutzung der Website und der
+                    Internetnutzung.
+                </p>
+                <p>
+                    Google kann diese Informationen auch an Dritte weitergeben
+                    soweit dies gesetzlich vorgeschrieben ist oder soweit Dritte
+                    diese Daten die Informationen im Auftrag von Google
+                    verarbeiten.
+                </p>
+                <p>
+                    Google wird in keinem Fall Ihre IP-Adresse mit anderen Daten
+                    von Daten im Besitz von Google. Sie können die Installation
+                    der Cookies verhindern, indem Sie Ihre Browser-Software
+                    entsprechend einstellen; Sie können die Installation der
+                    Cookies durch eine entsprechende Einstellung Ihrer Browser
+                    Software verhindern; wir weisen Sie jedoch darauf hin, dass
+                    Sie in diesem Fall gegebenenfalls nicht sämtliche Funktionen
+                    dieser Website voll umfänglich nutzen können. Funktionen
+                    dieser Website möglicherweise nicht in vollem Umfang nutzen
+                    Umfang nutzen können.
+                </p>
+                <p>
+                    Durch die Nutzung meiner Website erklären Sie sich mit der
+                    Bearbeitung der Daten Daten durch Google in der zuvor
+                    beschriebenen Art und Weise und zu dem zuvor oben genannten
+                    Zweck.
+                </p>
+                <p>
+                    Weitere Informationen finden Sie in den
+                    Datenschutzbestimmungen von Google Richtlinien von Google
+                    unter: <a
+                        rel="noopener noreferrer"
+                        href="https://policies.google.com/privacy?hl=de"
+                        target="_blank"
+                        >https://policies.google.com/privacy?hl=de</a
+                    >.
+                </p>
+            </li>
+            <li>
+                <h2>Recht auf Information</h2>
+                <p>
+                    Sie haben das Recht, Informationen über Ihre gespeicherten
+                    Daten anzufordern und gegebenenfalls das Recht auf
+                    Korrektur, Sperrung oder Löschung dieser Daten. Wenn Sie
+                    Fragen zur Erhebung, Verarbeitung oder Nutzung Ihrer
+                    personenbezogenen Daten haben oder Informationen,
+                    Korrekturen, Sperrungen oder Löschungen wünschen, können Sie
+                    sich gerne an mich wenden:
+                    <a href="mailto:contact@tranmp.dev">contact@tranmp.dev</a>
+                </p>
+            </li>
+        </ul>
+        <CookieModalButton client:visible>
+            Öffne Cookie Einstellung
+        </CookieModalButton>
+    </main>
+    <Footer lang="de" />
+</MainLayout>

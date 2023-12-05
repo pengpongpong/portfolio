@@ -1,0 +1,68 @@
+---
+import { GridCanvas } from "@components/grid-image/GridCanvas";
+import MainLayout from "@layouts/MainLayout.astro";
+import Footer from "@components/footer/Footer";
+import Navbar from "@components/navbar/Navbar.astro";
+
+import { AboutMeImage } from "@components/about-me-image/AboutMeImage";
+
+import "@styles/pages/about-me.scss";
+
+const seo = {
+    title: "Über mich | TMP",
+    description:
+        "Lernen Sie Phuong kennen, einen leidenschaftlichen Webentwickler aus Österreich, der Einblicke in die spannende Welt der Webentwicklung teilt. Begleiten Sie mich auf diesem technischen Abenteuer und entdecken Sie meine digitalen Lösungen. Erfahren Sie mehr über meinen Weg vom Rettungsdienst zum engagierten Webentwickler, der die digitale Welt gestaltet.",
+    keywords:
+        "Webentwickler Reise, Technik-Enthusiast, Österreichischer Webentwickler, Unabhängiges Lernabenteuer, Hintergrund als Rettungssanitäter, Schöpfer digitaler Erlebnisse, Leidenschaft für Webentwicklung, Gestaltung der digitalen Welt, Innovativer Webentwickler, Problemlösungsfähigkeiten, Technisches Abenteuer",
+    image: {
+        url: "https://res.cloudinary.com/dzvrnl80x/image/upload/v1698667770/my-portfolio/portrait-about_me.webp",
+        alt: "about me",
+        width: "3024",
+        height: "4023",
+    },
+};
+---
+
+<MainLayout seo={seo} lang="de">
+    <Navbar lang="de" />
+    <div>
+        <GridCanvas
+            client:idle
+            lang="de"
+            url="https://res.cloudinary.com/dzvrnl80x/image/upload/v1700324864/my-portfolio/banner-about_me.webp"
+        />
+    </div>
+
+    <main class="about">
+        <section>
+            <h1>Hey! Ich bin Phuong,</h1>
+            <p>
+                ein leidenschaftlicher Webentwickler aus dem schönen Österreich.
+                Meine Reise in die Welt der Technik begann im Frühjahr 2022, und
+                seitdem befinde ich mich auf einem spannenden, unabhängigen
+                Lernabenteuer.
+            </p>
+            <p>
+                Bevor ich in die Welt der Webentwicklung eintauchte, arbeitete
+                ich im Rettungsdienst, eine Tätigkeit, die mir die Bedeutung von
+                schnellem Denken, Präzision und Anpassungsfähigkeit vermittelte.
+                Diese Fähigkeiten haben sich in meinem Weg in der Webentwicklung
+                als äußerst wertvoll erwiesen. Auch wenn sich mein Weg von der
+                Rettung von Menschenleben zur Schaffung digitaler Erlebnisse
+                verlagert hat, ist mein Engagement für hervorragende Leistungen
+                ungebrochen.
+            </p>
+            <p>
+                Ich bin der festen Überzeugung, dass die Technologie die Zukunft
+                auf unglaubliche Weise gestalten kann, und ich freue mich
+                darauf, Teil dieser Reise zu sein. Ich genieße jeden Aspekt der
+                Web-Entwicklung und bin bestrebt, Lösungen zu schaffen, die
+                einen Unterschied machen. Begleiten Sie mich auf diesem
+                aufregenden technischen Abenteuer, und lassen Sie uns gemeinsam
+                eine bessere digitale Welt schaffen!
+            </p>
+        </section>
+        <AboutMeImage client:load />
+    </main>
+    <Footer lang="de" />
+</MainLayout>

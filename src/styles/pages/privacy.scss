@@ -1,0 +1,74 @@
+$rubik: "Rubik", sans-serif; //400
+$playpen-sans: "Playpen Sans", "Comic Sans MS"; //400
+
+$lg-screen: 1200px;
+
+$midnight: #181d31;
+$blue: rgb(163, 195, 249);
+$light-blue: #fafdfe;
+
+@use "@styles/mixin";
+
+body {
+    justify-content: center;
+    align-items: center;
+    background-color: $blue;
+}
+
+.privacy {
+    margin: 2rem auto;
+    padding: 2rem;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $light-blue;
+
+    @include mixin.containerShadow(4px);
+
+    h1,
+    h2 {
+        font-family: $rubik;
+    }
+
+    h1 {
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    h2 {
+        margin-bottom: 1rem;
+    }
+
+    ul {
+        margin-top: 2rem;
+        list-style: none;
+    }
+
+    p {
+        margin: 0 0 1.5rem 1rem;
+        font-family: $playpen-sans;
+    }
+
+    a {
+        color: $midnight;
+        &:visited {
+            color: $midnight;
+        }
+    }
+
+    @media screen and (max-width: $lg-screen) {
+        margin: 2rem 1.3rem;
+        padding: 1rem;
+
+        h2 {
+            font-size: 1.2rem;
+        }
+
+        p {
+            margin: 0 0 1rem 0.5rem;
+            font-size: 0.9rem;
+        }
+    }
+}

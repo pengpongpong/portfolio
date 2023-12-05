@@ -1,0 +1,50 @@
+$indie-flower: "Indie Flower", "Bradley Hand"; //400
+
+$lg-screen: 1200px;
+
+$midnight: #181d31;
+$blue: rgb(163, 195, 249);
+
+@use "@styles/mixin";
+
+footer {
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    font-size: 2rem;
+    background-color: $blue;
+
+    &[data-path="contact"] {
+        background-color: white;
+    }
+    
+    @include mixin.userSelect(none);
+
+    span {
+        display: inline-block;
+        position: relative;
+        bottom: 0;
+        left: 1rem;
+        transform: rotate(-90deg);
+        transform-origin: left;
+        font-family: $indie-flower;
+    }
+
+    a {
+        position: absolute;
+        bottom: 0.8rem;
+        left: 2rem;
+        font-family: $indie-flower;
+        color: $midnight;
+
+        &:visited {
+            color: $midnight;
+        }
+    }
+
+    @media screen and (max-width: $lg-screen) {
+        font-size: 1.5rem;
+    }
+}
