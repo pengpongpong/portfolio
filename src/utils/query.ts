@@ -27,7 +27,6 @@ export type Props = {
             title: string;
         }[];
         shortclip: string;
-        poster: string
     };
 };
 
@@ -38,7 +37,6 @@ export const queryPreviewProjects = async () => {
         year,
         "slug": slug.current,
         "shortclip": shortclip.asset->url,
-        "poster": shortclip.poster.asset->url
     } | order(year desc)`
 
     return await sanityClient.fetch(query)

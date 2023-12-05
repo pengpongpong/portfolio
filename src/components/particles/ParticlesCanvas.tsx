@@ -11,7 +11,6 @@ import { A11yAnnouncer, A11y } from "@react-three/a11y";
 
 import type { Props } from "@utils/utils";
 
-
 const a11yStyle = {
 	width: "0px",
 	height: "0px",
@@ -52,22 +51,15 @@ const ParticlesCanvas = ({ lang }: Props) => {
 				onCreated={handleCreated}
 			>
 
-				<EffectComposer >
-
+				<EffectComposer>
 					<Bloom
-						// mipmapBlur
-						// intensity={.1}
-						// luminanceThreshold={0}
-						// luminanceSmoothing={1}
-
-						intensity={0.1} // The bloom intensity.
-						blurPass={undefined} // A blur pass.
-						kernelSize={KernelSize.MEDIUM} // blur kernel size
-						luminanceThreshold={0.5} // luminance threshold. Raise this value to mask out darker elements in the scene.
-						luminanceSmoothing={0} // smoothness of the luminance threshold. Range is [0, 1]
-						mipmapBlur={false} // Enables or disables mipmap blur.
-						resolutionX={Resolution.AUTO_SIZE} // The horizontal resolution.
-						resolutionY={Resolution.AUTO_SIZE} // The vertical resolution.
+						intensity={0.1}
+						kernelSize={KernelSize.MEDIUM}
+						luminanceThreshold={0.5}
+						luminanceSmoothing={1}
+						mipmapBlur={false}
+						resolutionX={Resolution.AUTO_SIZE}
+						resolutionY={Resolution.AUTO_SIZE}
 					/>
 				</EffectComposer>
 
