@@ -3,7 +3,7 @@ import MainLayout from "@layouts/MainLayout.astro";
 import Navbar from "@components/navbar/Navbar.astro";
 import { Contact } from "@components/contact/ContactForm";
 import ContactSocials from "@components/contact/ContactSocials.astro";
-import Footer from "@components/footer/Footer";
+import Footer from "@components/footer/Footer.astro";
 
 import "@styles/pages/contact.scss";
 
@@ -19,11 +19,11 @@ const url = import.meta.env.AWS_URL;
 const api = import.meta.env.AWS_KEY;
 ---
 
-<MainLayout seo={seo} lang="de" path="hide">
+<MainLayout seo={seo} lang="de" hideScreenRotate={true}>
     <Navbar lang="de" />
     <main>
         <ContactSocials lang="de" />
         <Contact lang="de" apiData={{ url, api }} client:visible />
     </main>
-    <Footer lang="de" path="contact" />
+    <Footer lang="de" />
 </MainLayout>

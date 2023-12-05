@@ -8,6 +8,7 @@ import type { Font } from "three-stdlib"
 
 import { CreateParticles } from "./createParticles";
 
+
 export const Particles = () => {
   const font = useFont("https://res.cloudinary.com/dzvrnl80x/raw/upload/v1698668063/my-portfolio/Ubuntu-Bold.json")
   const texture = useTexture("https://res.cloudinary.com/dzvrnl80x/image/upload/v1701730962/my-portfolio/particleWebp.webp")
@@ -138,8 +139,8 @@ export const Particles = () => {
   const data = {
     text: "Welcome\nI'm Phuong",
     amount,
-    particleSize: 0.6,
-    particleColor: 0x000000,
+    particleSize: 0.45,
+    particleColor: 0xffffff,
     textSize,
     area: 1,
     ease: size.width < 1200 ? 0.08 : 0.1,

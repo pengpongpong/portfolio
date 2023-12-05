@@ -1,4 +1,4 @@
-type ConsentType = "consent" | "consent-required" | "consent-functional" | "consent-analytics" | "consent-advertise"
+type ConsentType = "consent" | "consent-required" | "consent-analytics" | "consent-advertise"
 type Consent = "granted" | "partial" | "denied" | "true" | "false"
 
 export type Locale = "en" | "de"

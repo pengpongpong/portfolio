@@ -7,8 +7,8 @@ $lg-screen: 1200px;
 $lg2-screen: 1600px;
 $xl-screen: 2000px;
 
-$blue: rgb(163, 195, 249);
-$white: white;
+$midnight: #181d31;
+$light-blue: #fafdfe;
 
 @use "@styles/mixin";
 
@@ -16,7 +16,7 @@ body {
     min-height: 100vh;
 
     & > div {
-        background-color: $blue;
+        background-color: $midnight;
     }
 }
 
@@ -33,18 +33,18 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
-    flex-grow: 2;
+    flex-grow: 1;
     align-items: center;
     text-align: center;
     font-family: $kalam;
-    background-color: $blue;
+    background-color: $midnight;
     overflow: hidden;
 
     & > section {
         max-width: 60vw;
         margin: 2rem 0;
         padding: 2rem;
-        background-color: $white;
+        background-color: $light-blue;
         @include mixin.containerShadow(4px);
     }
 

@@ -1,9 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=Kalam&family=Michroma&family=Playpen+Sans&family=Rubik&family=Ubuntu&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Kalam&family=Playpen+Sans&family=Rubik&family=Ubuntu&display=swap');
 
 $midnight: #181d31;
 $light-blue: #fafdfe;
-$dark-blue: #6c94ca;
-$white: white;
 
 $playpen-sans: "Playpen Sans", "Comic Sans MS"; //400
 
@@ -46,11 +44,7 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
-    background-color: $dark-blue;
-
-    &[data-path="work"] {
-        background-color: $midnight;
-    }
+    background-color: $midnight;
     
     header {
         width: 100%;
@@ -71,15 +65,11 @@ main {
     top: 10rem;
     z-index: 5;
     text-wrap: nowrap;
-    color: midnight;
+    color: $light-blue;
     font-family: $playpen-sans;
 
     h1 {
         letter-spacing: 1px;
-    }
-
-    &[data-page="true"] {
-        color: $light-blue;
     }
 
     &[data-loaded="true"] {
@@ -102,12 +92,13 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $light-blue;
+    background-color: $midnight;
     z-index: 60;
     overflow: hidden;
     opacity: 0;
     visibility: hidden;
     font-family: $playpen-sans;
+    color: $light-blue;
     transition: opacity 0.2s ease-in-out;
     user-select: none;
 
@@ -115,12 +106,7 @@ main {
         text-wrap: nowrap;
     }
 
-    &[data-path="work"] {
-        background-color: $midnight;
-        color: $light-blue;
-    }
-
-    &[data-path="hide"] {
+    &[data-hide="true"] {
         display: none;
     }
 }

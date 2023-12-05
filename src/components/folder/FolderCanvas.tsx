@@ -7,21 +7,20 @@ import { FolderContainer } from "./folder-model/FolderContainer";
 import { Lights } from "./environment/lights/Lights";
 
 import { type Scene, Color } from "three";
-import type { Props } from "@utils/query";
-import type { Locale } from "@utils/utils";
+import type { Props as QueryProps } from "@utils/query";
+import type { Props } from "@utils/utils";
 
 import { A11yAnnouncer } from '@react-three/a11y'
 
 export type FolderCanvasProps = {
-  data: Props["projectData"][],
-  lang: Locale
-}
+  data: QueryProps["projectData"][],
+} & Props
 
 export const FolderCanvas = ({ data, lang }: FolderCanvasProps) => {
   const { progress } = useProgress()
   const [loaded, setLoaded] = useState(false)
 
-	// handle loaded on created and set background color
+  // handle loaded on created and set background color
   const handleCreated = ({ scene }: { scene: Scene }) => {
     scene.background = new Color("#181D31")
 
@@ -30,7 +29,7 @@ export const FolderCanvas = ({ data, lang }: FolderCanvasProps) => {
 
   return (
     <>
-      <Loading progress={progress} lang={lang} lightColor loaded={loaded} />
+      <Loading progress={progress} lang={lang} loaded={loaded} />
 
       <CanvasContainer
         flat

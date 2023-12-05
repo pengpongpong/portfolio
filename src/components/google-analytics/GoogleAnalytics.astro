@@ -1,5 +1,15 @@
 ---
-const {consent} = Astro.props
+type Props = {
+    consent: {
+        advertisementCookie: {
+            value: string
+        },
+        analyticsCookie: {
+            value: string
+        },
+    }
+}
+const {consent}: Props = Astro.props
 ---
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-41LNP2ED5N"></script>

@@ -1,18 +1,14 @@
 import { useEffect, useRef, useState } from "react"
-import { getConsentLocalStorage, setConsentLocalStorage, removeConsentLocalStorage, type Locale, setCookie, deleteCookie, getCookie, setHtmlOverflow } from "@utils/utils"
-import { setOpen, useCookieModal } from "@utils/store"
+
+import { getConsentLocalStorage, setConsentLocalStorage, setCookie, deleteCookie, getCookie, setHtmlOverflow, type Props } from "@utils/utils"
+import { setOpen, useCookieModal, } from "@utils/store"
+
 import { CloseButton } from "@components/close-button/CloseButton"
 
 import "@styles/components/cookie-banner.scss"
 
-// set/delete functional, analytics and advertisement cookies or local storage
-const setAllConsent = (functionalChecked?: boolean, analyticChecked?: boolean, advertisementChecked?: boolean) => {
-    if (functionalChecked) {
-        setConsentLocalStorage("consent-functional", "true")
-    } else {
-        removeConsentLocalStorage("consent-functional")
-    };
-
+// set/delete, analytics and advertisement cookies or local storage
+const setAllConsent = (analyticChecked?: boolean, advertisementChecked?: boolean) => {
     if (analyticChecked) {
         setCookie("consent-analytics", "true")
     } else {
@@ -27,14 +23,12 @@ const setAllConsent = (functionalChecked?: boolean, analyticChecked?: boolean, a
 }
 
 type CookieBannerProps = {
-    lang: Locale,
     noBanner: boolean
-}
+} & Props
 
 export const CookieBanner = ({ lang, noBanner }: CookieBannerProps) => {
     if (noBanner) return;
 
-    const functionalRef = useRef<HTMLInputElement>(null)
     const analyticsRef = useRef<HTMLInputElement>(null)
     const advertiseRef = useRef<HTMLInputElement>(null)
 
@@ -43,7 +37,7 @@ export const CookieBanner = ({ lang, noBanner }: CookieBannerProps) => {
 
     // set consent in modal to user settings if reload
     useEffect(() => {
-        if (!functionalRef.current || !analyticsRef.current || !advertiseRef.current) return
+        if (!analyticsRef.current || !advertiseRef.current) return
 
         const consentLocal = getConsentLocalStorage("consent")
 
@@ -54,17 +48,15 @@ export const CookieBanner = ({ lang, noBanner }: CookieBannerProps) => {
             setConsent(true)
         }
 
-        const functionalConsent = functionalRef.current
         const analyticsConsent = analyticsRef.current
         const advertisementConsent = advertiseRef.current
 
-        const functionalCookie = getConsentLocalStorage("consent-functional")
         const analyticsCookie = getCookie("consent-analytics")
         const advertisementCookie = getCookie("consent-advertise")
 
-        functionalConsent.checked = !!functionalCookie
         analyticsConsent.checked = !!analyticsCookie
         advertisementConsent.checked = !!advertisementCookie
+
     }, [])
 
     // open cookie settings
@@ -83,28 +75,27 @@ export const CookieBanner = ({ lang, noBanner }: CookieBannerProps) => {
     const acceptConsent = () => {
         setConsentLocalStorage("consent", "granted")
 
-        setAllConsent(true, true, true)
+        setAllConsent(true, true)
         setConsent(true)
     }
 
     // save user settings
     const saveSettingConsent = () => {
-        if (!functionalRef.current || !analyticsRef.current || !advertiseRef.current) return
+        if (!analyticsRef.current || !advertiseRef.current) return
 
-        const functionalConsentChecked = functionalRef.current.checked
         const analyticsConsentChecked = analyticsRef.current.checked
         const advertisementConsentChecked = advertiseRef.current.checked
 
         setConsentLocalStorage("consent", "partial")
 
-        setAllConsent(functionalConsentChecked, analyticsConsentChecked, advertisementConsentChecked)
+        setAllConsent(analyticsConsentChecked, advertisementConsentChecked)
     }
 
     // deny all
     const denyConsent = () => {
         setConsentLocalStorage("consent", "denied")
 
-        setAllConsent(false, false, false)
+        setAllConsent(false, false)
     }
 
     const bannerText =
@@ -122,8 +113,6 @@ export const CookieBanner = ({ lang, noBanner }: CookieBannerProps) => {
                     consent: {
                         requiredHead: "Required Cookies",
                         requiredText: "Required cookies help make a website usable by enabling basic functions such as page navigation and access to secure areas of the website. Without these cookies, the website cannot function properly.",
-                        functionalHead: "Preference Cookies",
-                        functionalText: "Preference cookies allow a website to store information that changes the behavior or appearance of the website, such as your preferred language.",
                         analyticsHead: "Analytics Cookies",
                         analyticsText: "Analytics cookies help us understand how visitors interact with websites by collecting and reporting information anonymously.",
                         advertiseHead: "Advertising Cookies",
@@ -144,8 +133,6 @@ export const CookieBanner = ({ lang, noBanner }: CookieBannerProps) => {
                     consent: {
                         requiredHead: "Erforderliche Cookies",
                         requiredText: "Erforderliche Cookies helfen dabei, eine Website nutzbar zu machen, indem sie grundlegende Funktionen wie die Seitennavigation und den Zugang zu sicheren Bereichen der Website ermöglichen. Ohne diese Cookies kann die Website nicht richtig funktionieren.",
-                        functionalHead: "Präferenz Cookies",
-                        functionalText: "Mit Hilfe von Präferenz-Cookies kann eine Website Informationen speichern, die das Verhalten oder das Aussehen der Website verändern, z. B. Ihre bevorzugte Sprache.",
                         analyticsHead: "Analyse Cookies",
                         analyticsText: "Analytics-Cookies uns zu verstehen, wie Besucher mit Websites interagieren, indem sie Informationen anonym sammeln und melden.",
                         advertiseHead: "Werbe Cookies",
@@ -189,14 +176,6 @@ export const CookieBanner = ({ lang, noBanner }: CookieBannerProps) => {
                                 <input type="checkbox" id="requiredCookies" defaultChecked disabled />
                             </label>
                             <p>{bannerText.modal.consent.requiredText}</p>
-                        </fieldset>
-
-                        <fieldset>
-                            <label htmlFor="functionalConsent">
-                                <span>{bannerText.modal.consent.functionalHead}</span>
-                                <input type="checkbox" id="functionalConsent" ref={functionalRef} />
-                            </label>
-                            <p>{bannerText.modal.consent.functionalText}</p>
                         </fieldset>
 
                         <fieldset>

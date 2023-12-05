@@ -3,7 +3,7 @@ $indie-flower: "Indie Flower", "Bradley Hand"; //400
 $brown: #cd5c08;
 $turquoise: #3876bf;
 $blue: rgb(163, 195, 249);
-$white: white;
+$white: #fafdfe;
 $midnight: #181d31;
 
 $xs-screen: 411px;
@@ -36,7 +36,6 @@ html,
 body {
     align-items: center;
     overscroll-behavior-y: none;
-    background-color: $blue;
 }
 
 #particleCanvas {
@@ -44,7 +43,7 @@ body {
 }
 
 .introduction {
-    margin: 0 1.5rem 2rem 1.5rem;
+    margin: 0 auto 2rem auto;
     padding: 1.4rem 2rem 2rem 2rem;
     width: fit-content;
     max-width: 850px;
@@ -81,6 +80,8 @@ body {
             position: relative;
             top: -1rem;
             transform: scaleX(-1) rotate(-80deg);
+            filter: invert(1);
+            mix-blend-mode: difference;
         }
     }
 

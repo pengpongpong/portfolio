@@ -1,12 +1,18 @@
 $midnight: #181d31;
+$white: #fafdfe;
+$grey: #6d6a75;
 
 @mixin containerShadow($size) {
     border: 1px solid $midnight;
-    box-shadow: $size $size 0px 0px $midnight;
+    box-shadow: $size $size 0px 0px $grey;
+}
+@mixin containerShadowWhite($size) {
+    border: 1px solid $white;
+    box-shadow: $size $size 0px 0px $white;
 }
 
 @mixin boxShadow($size) {
-    box-shadow: $size $size 0px 0px $midnight;
+    box-shadow: $size $size 0px 0px $grey;
 }
 
 @mixin jumpUp($time) {

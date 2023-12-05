@@ -2,9 +2,8 @@ $xs-screen: 375px;
 $sm-screen: 500px;
 $lg-screen: 1200px;
 
-$line-color: #181d31;
 $midnight: #181d31;
-$blue: rgb(163, 195, 249);
+// $blue: rgb(163, 195, 249);
 $darkblue: #6c94ca;
 $light-blue: #fafdfe;
 
@@ -19,7 +18,7 @@ $playpen-sans: "Playpen Sans", "Comic Sans MS"; //400
     position: relative;
     z-index: 10;
     font-family: $playpen-sans;
-    background-color: $darkblue;
+    // background-color: transparent;
     @include mixin.userSelect(none);
 
     &__socials {
@@ -108,7 +107,7 @@ $playpen-sans: "Playpen Sans", "Comic Sans MS"; //400
     .box-right {
         width: 100%;
         height: 3.2rem;
-        border-bottom: 1px solid $line-color;
+        border-bottom: 1px solid $light-blue;
 
         @media screen and (max-width: $sm-screen) {
             height: 2.8rem;
@@ -130,7 +129,7 @@ $playpen-sans: "Playpen Sans", "Comic Sans MS"; //400
             display: flex;
             justify-content: center;
             align-items: center;
-            border-bottom: 1px solid $midnight;
+            border-bottom: 1px solid $light-blue;
             white-space: nowrap;
             cursor: pointer;
             list-style: none;
@@ -163,19 +162,19 @@ $playpen-sans: "Playpen Sans", "Comic Sans MS"; //400
         }
 
         .active {
-            border-top: 1px solid $midnight;
-            border-left: 1px solid $midnight;
-            border-right: 1px solid $midnight;
+            border-top: 1px solid $light-blue;
+            border-left: 1px solid $light-blue;
+            border-right: 1px solid $light-blue;
             border-bottom: none;
             border-top-left-radius: 8px;
             border-top-right-radius: 8px;
-            background-color: $blue;
-            box-shadow: 3px 0 0 0 $midnight;
+            background-color: transparent;
+            box-shadow: 3px 0 0 0 $light-blue;
 
             a {
-                color: $midnight;
+                color: $light-blue;
                 &:visited {
-                    color: $midnight;
+                    color: $light-blue;
                 }
             }
         }
@@ -202,66 +201,6 @@ $playpen-sans: "Playpen Sans", "Comic Sans MS"; //400
             li > a {
                 padding: 0 clamp(0rem, 0.8rem, 1rem);
                 font-size: 0.7rem;
-            }
-        }
-    }
-
-    &[data-path="/contact"],
-    &[data-path="/kontakt"] {
-        .active {
-            border-top: 1px solid $midnight;
-            border-left: 1px solid $midnight;
-            border-right: 1px solid $midnight;
-            border-bottom: none;
-            background-color: $light-blue;
-            box-shadow: 3px 0 0 0 $midnight;
-
-            a {
-                color: $midnight;
-                &:visited {
-                    color: $midnight;
-                }
-            }
-        }
-    }
-
-    &[data-path="/work"],
-    &[data-path="/projekte"] {
-        $light-blue: #fafdfe;
-
-        @mixin containerShadowWhite($size) {
-            border: 1px solid $light-blue;
-            box-shadow: $size $size 0px 0px $light-blue;
-        }
-
-        @mixin boxShadowWhite($size) {
-            box-shadow: $size $size 0px 0px $light-blue;
-        }
-
-        .box-left,
-        .box-right {
-            border-bottom: 1px solid black;
-        }
-
-        & > ul {
-            li {
-                border-bottom: 1px solid black;
-            }
-        }
-
-        .active {
-            border-top: 1px solid black;
-            border-left: 1px solid black;
-            border-right: 1px solid black;
-            border-bottom: none;
-            background-color: $midnight;
-            box-shadow: 3px 0 0 0 black;
-
-            a {
-                color: $light-blue;
-                &:visited {
-                    color: $light-blue;
-                }
             }
         }
     }

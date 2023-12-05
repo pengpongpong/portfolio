@@ -8,17 +8,13 @@ $xl-screen: 2000px;
 
 $font-color: #181d31;
 $light-blue: #fafdfe;
-$white: white;
+// $light-blue: white;
 
 @use "@styles/mixin";
 
-body {
-    background-color: #6c94ca;
-}
 
 main {
     padding: 0 2rem;
-    background-color: $light-blue;
 }
 
 .socials {
@@ -44,7 +40,7 @@ main {
         font-size: 1.8rem;
         font-weight: bold;
         color: $font-color;
-        background-color: $white;
+        background-color: $light-blue;
 
         @include mixin.containerShadow(4px);
 
@@ -209,7 +205,7 @@ main {
     flex-direction: column;
     font-family: $playpen-sans;
     color: $font-color;
-    background-color: $white;
+    background-color: $light-blue;
 
     @include mixin.containerShadow(4px);
 
@@ -244,7 +240,7 @@ main {
         letter-spacing: 1px;
         text-decoration: none;
         cursor: pointer;
-        background-color: $white;
+        background-color: $light-blue;
         transition: box-shadow 0.2s ease-in-out;
 
         @include mixin.containerShadow(3px);

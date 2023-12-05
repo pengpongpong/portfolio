@@ -10,7 +10,7 @@ import { Paper } from "./model/Paper"
 
 import type { ThreeEvent } from "@react-three/fiber"
 import { useReducedMotion } from "framer-motion"
-import type { Locale } from "@utils/utils"
+import type { Props } from "@utils/utils"
 
 type FolderProps = {
     position: {
@@ -20,9 +20,8 @@ type FolderProps = {
     title: string,
     urlProject: string,
     screenWidth: number,
-    lang: Locale,
     urlVideo: string,
-}
+} & Props
 
 export const Folder = ({ position, title, urlProject, urlVideo, screenWidth, lang }: FolderProps) => {
     const [folderOpen, setFolderOpen] = useState(false)

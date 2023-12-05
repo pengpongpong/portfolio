@@ -1,12 +1,16 @@
 import { Suspense, useState } from "react"
-import { useProgress } from "@react-three/drei";
 import { Loading } from "@components/loading/Loading";
+
+import { useProgress } from "@react-three/drei";
 import { CanvasContainer } from "@components/canvas/CanvasContainer";
 import { Particles } from "./Particles";
+import { EffectComposer, Bloom } from "@react-three/postprocessing"
+import { KernelSize, Resolution } from 'postprocessing'
 
 import { A11yAnnouncer, A11y } from "@react-three/a11y";
 
-import type { Locale } from "@utils/utils";
+import type { Props } from "@utils/utils";
+
 
 const a11yStyle = {
 	width: "0px",
@@ -14,7 +18,7 @@ const a11yStyle = {
 	border: "none"
 }
 
-const ParticlesCanvas = ({ lang }: { lang: Locale }) => {
+const ParticlesCanvas = ({ lang }: Props) => {
 	const { progress } = useProgress()
 	const [loaded, setLoaded] = useState(false)
 
@@ -22,6 +26,7 @@ const ParticlesCanvas = ({ lang }: { lang: Locale }) => {
 	const handleCreated = () => {
 		setLoaded(true)
 	}
+
 
 	return (
 		<>
@@ -46,6 +51,27 @@ const ParticlesCanvas = ({ lang }: { lang: Locale }) => {
 				id="particleCanvas"
 				onCreated={handleCreated}
 			>
+
+				<EffectComposer >
+
+					<Bloom
+						// mipmapBlur
+						// intensity={.1}
+						// luminanceThreshold={0}
+						// luminanceSmoothing={1}
+
+						intensity={0.1} // The bloom intensity.
+						blurPass={undefined} // A blur pass.
+						kernelSize={KernelSize.MEDIUM} // blur kernel size
+						luminanceThreshold={0.5} // luminance threshold. Raise this value to mask out darker elements in the scene.
+						luminanceSmoothing={0} // smoothness of the luminance threshold. Range is [0, 1]
+						mipmapBlur={false} // Enables or disables mipmap blur.
+						resolutionX={Resolution.AUTO_SIZE} // The horizontal resolution.
+						resolutionY={Resolution.AUTO_SIZE} // The vertical resolution.
+					/>
+				</EffectComposer>
+
+
 				<A11y
 					role="content"
 					description={lang === "en"

@@ -1,0 +1,20 @@
+---
+import type { Locale } from "@utils/utils";
+
+type Props = {
+    lang: Locale;
+    hideScreenRotate?: boolean;
+};
+
+const { lang, hideScreenRotate }: Props = Astro.props;
+---
+
+<div id="screenRotation" data-hide={hideScreenRotate}>
+    <h1>
+        {
+            lang === "en"
+                ? "Please switch to portrait format"
+                : "Bitte auf Hochformat wechseln"
+        }
+    </h1>
+</div>

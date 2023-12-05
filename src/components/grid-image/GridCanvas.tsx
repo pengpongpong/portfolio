@@ -7,12 +7,11 @@ import { Grid } from "./Grid"
 
 import { A11yAnnouncer, A11y } from "@react-three/a11y"
 
-import type { Locale } from "@utils/utils"
+import type {  Props } from "@utils/utils"
 
 type GridCanvasProps = {
     url: string,
-    lang: Locale
-}
+} & Props
 
 
 const a11yStyle = {

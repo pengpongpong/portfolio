@@ -1,11 +1,19 @@
 ---
 import { CookieBanner } from "@components/cookie-banner/CookieBanner";
-import { ScreenRotateBanner } from "@components/screenrotate-banner/ScreenRotateBanner"
+import  ScreenRotateBanner  from "@components/screenrotate-banner/ScreenRotateBanner.astro"
 import GoogleAnalytics from "@components/google-analytics/GoogleAnalytics.astro";
 
 import "@styles/global.scss";
+import type { Locale } from "@utils/utils";
 
-const { path, seo, lang = "en" } = Astro.props;
+type Props = {
+    hideScreenRotate?: boolean;
+    seo: Seo,
+    lang: Locale
+}
+
+const { hideScreenRotate, seo, lang = "en" }: Props = Astro.props;
+
 const {pathname} = Astro.url;
 
 const analyticsCookie = Astro.cookies.get("consent-analytics");
@@ -73,11 +81,12 @@ export type Seo = {
         />
 
         <title>{seo.title}</title>
-        
-        <GoogleAnalytics consent={{ analyticsCookie, advertisementCookie }} />
+
+        {analyticsCookie && advertisementCookie ?  <GoogleAnalytics consent={{ analyticsCookie, advertisementCookie }} /> : null }        
+       
     </head>
-    <body data-path={`${path}`}>
-        <ScreenRotateBanner lang={lang} path={path} client:visible />
+    <body>
+        <ScreenRotateBanner lang={lang} hideScreenRotate={hideScreenRotate} />
         <slot />
         <CookieBanner lang={lang} noBanner={pathname.startsWith("/projects/")} client:idle />
     </body>

@@ -5,7 +5,7 @@ import { Html, useGLTF } from "@react-three/drei";
 import { motion } from "framer-motion-3d"
 
 import type { GLTF } from 'three-stdlib'
-import type { Locale } from "@utils/utils";
+import type { Props } from "@utils/utils";
 
 import { isDesktop, isIOS, isMobile, isTablet } from "react-device-detect";
 
@@ -22,9 +22,8 @@ type PaperProps = {
     screenWidth: number,
     reduceMotion?: boolean | null,
     title: string,
-    lang: Locale,
     inView: boolean
-}
+} & Props
 
 const material = new MeshBasicMaterial({ color: "#ffffff" })
 

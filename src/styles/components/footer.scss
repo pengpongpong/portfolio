@@ -4,6 +4,8 @@ $lg-screen: 1200px;
 
 $midnight: #181d31;
 $blue: rgb(163, 195, 249);
+$dark-blue: #6c94ca;
+$light-blue: #fafdfe;
 
 @use "@styles/mixin";
 
@@ -14,11 +16,7 @@ footer {
     left: 0;
     z-index: 10;
     font-size: 2rem;
-    background-color: $blue;
-
-    &[data-path="contact"] {
-        background-color: white;
-    }
+    background-color: $midnight;
     
     @include mixin.userSelect(none);
 
@@ -30,6 +28,7 @@ footer {
         transform: rotate(-90deg);
         transform-origin: left;
         font-family: $indie-flower;
+        color: $light-blue;
     }
 
     a {
@@ -37,10 +36,10 @@ footer {
         bottom: 0.8rem;
         left: 2rem;
         font-family: $indie-flower;
-        color: $midnight;
+        color: $light-blue;
 
         &:visited {
-            color: $midnight;
+            color: $light-blue;
         }
     }
 

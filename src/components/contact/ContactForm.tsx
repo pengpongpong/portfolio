@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { setHtmlOverflow, type Locale } from "@utils/utils";
+import { setHtmlOverflow, type Props } from "@utils/utils";
 
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
@@ -53,12 +53,11 @@ const PuffLoader = ({ size }: { size: number }) => {
 }
 
 type ContactProps = {
-    lang: Locale,
     apiData: {
         url: string,
         api: string
     }
-}
+} & Props
 
 export const Contact = ({ lang, apiData }: ContactProps) => {
     const [responseMessage, setResponseMessage] = useState({ showConfirmation: false, error: { message: "" } });

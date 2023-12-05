@@ -1,7 +1,7 @@
 ---
 import MainLayout from "@layouts/MainLayout.astro";
 import Navbar from "@components/navbar/Navbar.astro";
-import Footer from "@components/footer/Footer";
+import Footer from "@components/footer/Footer.astro";
 
 import "@styles/pages/error.scss";
 
@@ -14,7 +14,7 @@ const seo = {
 };
 ---
 
-<MainLayout seo={seo}>
+<MainLayout seo={seo} lang="en">
     <Navbar lang="en" />
     <main>
         <div class="error">

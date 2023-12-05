@@ -1,7 +1,7 @@
 ---
 import { GridCanvas } from "@components/grid-image/GridCanvas";
 import MainLayout from "@layouts/MainLayout.astro";
-import Footer from "@components/footer/Footer";
+import Footer from "@components/footer/Footer.astro";
 import Navbar from "@components/navbar/Navbar.astro";
 
 import { AboutMeImage } from "@components/about-me-image/AboutMeImage";
@@ -60,5 +60,5 @@ const seo = {
         </section>
         <AboutMeImage client:load />
     </main>
-    <Footer lang="en" client:visible />
+    <Footer lang="en" />
 </MainLayout>
