@@ -1,7 +1,7 @@
 $rubik: "Rubik", sans-serif; //400
 $playpen-sans: "Playpen Sans", "Comic Sans MS"; //400
 
-$blue: rgb(163, 195, 249);
+$midnight: #181d31;
 $white: white;
 
 @use "@styles/mixin";
@@ -9,7 +9,7 @@ $white: white;
 main {
     display: grid;
     place-items: center;
-    background-color: $blue;
+    background-color: $midnight;
 }
 
 .error {
