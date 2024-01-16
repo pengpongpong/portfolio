@@ -20,6 +20,16 @@ export const FolderContainer = ({ data, lang }: FolderCanvasProps) => {
 
     const { size } = useThree()
 
+    const text = size.width > 1000
+        ? {
+            en: `Click on ${data[offset / 6].title ?? "folder name"} to open project, \nplay the video or simply drag the folder around`,
+            de: `Klicke auf ${data[offset / 6].title ?? "Ordnernamen"}, um das Projekt zu öffnen,\nspiele das Video ab oder ziehe einfach nur am Ordner herum`
+        }
+        : {
+            en: `Click on ${data[offset / 6].title ?? "folder name"} to open project, \nplay the video or simply drag the folder around`,
+            de: `Klicke auf ${data[offset / 6].title ?? "Ordnernamen"},\n um das Projekt zu öffnen,\nspiele das Video ab oder\n ziehe einfach nur am Ordner herum`
+        }
+
     return (
         <>
             <Float
@@ -38,8 +48,8 @@ export const FolderContainer = ({ data, lang }: FolderCanvasProps) => {
                     color="#FAFDFE"
                 >
                     {lang === "en"
-                        ? `Click on ${data[offset / 6].title ?? "folder name"} to open project, \nplay the video or simply drag the folder around`
-                        : `Klicke auf ${data[offset / 6].title ?? "Ordnernamen"}, um das Projekt zu öffnen,\nspiele das Video ab oder ziehe einfach nur am Ordner herum`}
+                        ? text.en
+                        : text.de}
                 </Text>
             </Float>
             <A11y

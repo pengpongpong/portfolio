@@ -1,0 +1,54 @@
+$rubik: "Rubik", sans-serif; //400
+$playpen-sans: "Playpen Sans", "Comic Sans MS"; //400
+
+$sm-screen: 450px;
+$md-screen: 750px;
+$lg-screen: 1200px;
+$xl-screen: 2000px;
+
+$font-color: #181d31;
+$light-blue: #fafdfe;
+
+@use "@styles/mixin";
+
+
+main {
+    width: 100%;
+    margin: 3rem 1rem 2rem 1rem;
+    padding: 0 2rem;
+    color: $light-blue;
+    font-family: $rubik;
+
+    h2 {
+        margin: 3rem 0 1rem 0;
+    }
+
+    ul, p {
+        margin-left: 1rem;
+
+    }
+
+    ul {
+        list-style-type: none;
+    }
+
+    a {
+        color: $light-blue;
+
+        &:visited {
+            color: $light-blue;
+        }
+    }
+
+    @media screen and (min-width: $md-screen) {
+        margin: 4rem auto;
+        max-width: 600px;
+    }
+
+    @media screen and (min-width: $lg-screen) {
+        margin: 4rem auto;
+        max-width: 800px;
+    }
+}
+
+

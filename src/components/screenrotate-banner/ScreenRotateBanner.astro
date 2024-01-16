@@ -3,13 +3,14 @@ import type { Locale } from "@utils/utils";
 
 type Props = {
     lang: Locale;
-    hideScreenRotate?: boolean;
+    preventScreenRotate?: "true" | "false";
 };
 
-const { lang, hideScreenRotate }: Props = Astro.props;
+const { lang, preventScreenRotate = "false" }: Props = Astro.props;
+
 ---
 
-<div id="screenRotation" data-hide={hideScreenRotate}>
+<div id="screenRotation" data-preventScreenRotate={preventScreenRotate}>
     <h1>
         {
             lang === "en"

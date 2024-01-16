@@ -30,7 +30,7 @@ body {
 
 .about {
     width: 100%;
-    margin-top: 1rem;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -42,7 +42,6 @@ body {
 
     & > section {
         max-width: 100%;
-        margin-top: 1rem;
         padding: 2rem 1rem;
         background-color: $light-blue;
         @include mixin.containerShadow(4px);
@@ -62,11 +61,11 @@ body {
 
     .polaroid {
         width: fit-content;
-        margin: 4rem;
+        margin: 4rem 2rem;
         padding: 1rem 1rem 2rem 1rem;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         background-color: #f9faf5;
         transform: rotate(15deg);
 
@@ -82,6 +81,10 @@ body {
         span {
             margin-top: 1rem;
             letter-spacing: 1px;
+
+            a {
+                text-decoration: none;
+            }
         }
 
         &-paperclip {
@@ -97,10 +100,10 @@ body {
     // 500
     @media screen and (min-width: $sm-screen) {
         .polaroid {
+            width: 70%;
             &-container {
                 top: -2rem;
             }
-
         }
     }
     // 750
@@ -110,16 +113,13 @@ body {
         }
 
         .polaroid {
+            width: 60%;
             &-container {
                 top: -2rem;
             }
-
-            &-image {
-                width: 40vw;
-            }
         }
     }
-    
+
     // 1200
     @media screen and (min-width: $lg-screen) {
         & > section {
@@ -127,13 +127,10 @@ body {
         }
 
         .polaroid {
+            width: 50%;
             &-container {
                 max-width: 900px;
                 top: -2.5rem;
-            }
-
-            &-image {
-                width: 20vw;
             }
         }
     }

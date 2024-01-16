@@ -5,7 +5,7 @@ import { Contact } from "@components/contact/ContactForm";
 import ContactSocials from "@components/contact/ContactSocials.astro";
 import Footer from "@components/footer/Footer.astro";
 
-import "@styles/pages/contact.scss";
+import "@styles/pages/legal.scss";
 
 const seo = {
     title: "Kontakt | TMP",
@@ -14,16 +14,30 @@ const seo = {
     keywords:
         "Kontaktinformation, LinkedIn-Profil, GitHub-Profil, E-Mail-Kontakt, Kontaktformular, Treten Sie in Kontakt, Erreichen Sie mich, Professionelles Netzwerken, Online-Präsenz, Kommunikationsoptionen, Kollaborationsmöglichkeiten",
 };
-
-const url = import.meta.env.AWS_URL;
-const api = import.meta.env.AWS_KEY;
 ---
 
-<MainLayout seo={seo} lang="de">
+<MainLayout seo={seo} lang="en">
     <Navbar lang="de" />
     <main>
-        <ContactSocials lang="de" />
-        <Contact lang="de" apiData={{ url, api }} client:visible />
+        <h1>Legal</h1>
+
+        <h2>Owner and Content</h2>
+        <p>&copy; 2023 - 2024 Phuong Tran Mimh</p>
+
+        <h2>Responsible party</h2>
+        <ul>
+            <li>Phuong Tran Mimh</li>
+            <li>Brucknerstraße 46/2</li>
+            <li>8010 Graz</li>
+        </ul>
+
+        <h2>Business Purpose</h2>
+        <p>Creation, operation, and maintenance of websites</p>
+
+        <h2>Contact</h2>
+        <ul>
+            <li><a href="mailto:contact@tranmp.com">contact@tranmp.com</a></li>
+        </ul>
     </main>
     <Footer lang="de" />
 </MainLayout>

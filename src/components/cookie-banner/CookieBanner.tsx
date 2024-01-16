@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 
-import { getConsentLocalStorage, setConsentLocalStorage, setCookie, deleteCookie, getCookie, setHtmlOverflow, type Props } from "@utils/utils"
+import { setCookie, deleteCookie, getCookie, setHtmlOverflow, type Props } from "@utils/utils"
 import { setOpen, useCookieModal, } from "@utils/store"
 
 import { CloseButton } from "@components/close-button/CloseButton"
@@ -8,7 +8,7 @@ import { CloseButton } from "@components/close-button/CloseButton"
 import "@styles/components/cookie-banner.scss"
 
 // set/delete, analytics and advertisement cookies or local storage
-const setAllConsent = (analyticChecked?: boolean, advertisementChecked?: boolean) => {
+const setAnalyticAdvertiseCookie = (analyticChecked?: boolean, advertisementChecked?: boolean) => {
     if (analyticChecked) {
         setCookie("consent-analytics", "true")
     } else {
@@ -31,23 +31,30 @@ export const CookieBanner = ({ lang, noBanner }: CookieBannerProps) => {
 
     const analyticsRef = useRef<HTMLInputElement>(null)
     const advertiseRef = useRef<HTMLInputElement>(null)
+    const [hideBanner, setHideBanner] = useState(true)
 
-    const [consent, setConsent] = useState(true)
     const open = useCookieModal((state) => state.open)
 
-    // set consent in modal to user settings if reload
     useEffect(() => {
         if (!analyticsRef.current || !advertiseRef.current) return
 
-        const consentLocal = getConsentLocalStorage("consent")
+        // get user consent from cookie
+        const userConsentCookie = getCookie("consent") ?? ""
 
-        // show cookie banner if no consent
-        if (!consentLocal) {
-            setConsent(false)
-        } else if (consentLocal === "granted" || consentLocal === "denied" || consentLocal === "partial") {
-            setConsent(true)
+        let consentParsed = "";
+        if (userConsentCookie) {
+            const { userConsent = "" } = JSON.parse(userConsentCookie)
+            consentParsed = userConsent
         }
 
+        // show cookie banner if no consent
+        if (!consentParsed && hideBanner) {
+            setHideBanner(false)
+        } else if (consentParsed === "granted" || consentParsed === "denied" || consentParsed === "partial") {
+            setHideBanner(true)
+        }
+
+        // set consent in modal to user settings if reload
         const analyticsConsent = analyticsRef.current
         const advertisementConsent = advertiseRef.current
 
@@ -71,12 +78,21 @@ export const CookieBanner = ({ lang, noBanner }: CookieBannerProps) => {
         setOpen(false)
     }
 
+    // Set consent to cookie
+    const setUserConsent = (consent: string) => {
+        const userConsent = {
+            userConsent: consent,
+            datestamp: new Date()
+        }
+
+        setCookie("consent", JSON.stringify(userConsent))
+    }
+
     // accept all
     const acceptConsent = () => {
-        setConsentLocalStorage("consent", "granted")
-
-        setAllConsent(true, true)
-        setConsent(true)
+        setUserConsent("granted")
+        setAnalyticAdvertiseCookie(true, true)
+        setHideBanner(true)
     }
 
     // save user settings
@@ -86,16 +102,16 @@ export const CookieBanner = ({ lang, noBanner }: CookieBannerProps) => {
         const analyticsConsentChecked = analyticsRef.current.checked
         const advertisementConsentChecked = advertiseRef.current.checked
 
-        setConsentLocalStorage("consent", "partial")
-
-        setAllConsent(analyticsConsentChecked, advertisementConsentChecked)
+        setUserConsent("partial")
+        setAnalyticAdvertiseCookie(analyticsConsentChecked, advertisementConsentChecked)
+        setHideBanner(true)
     }
 
     // deny all
     const denyConsent = () => {
-        setConsentLocalStorage("consent", "denied")
-
-        setAllConsent(false, false)
+        setUserConsent("denied")
+        setAnalyticAdvertiseCookie(false, false)
+        setHideBanner(true)
     }
 
     const bannerText =
@@ -143,7 +159,7 @@ export const CookieBanner = ({ lang, noBanner }: CookieBannerProps) => {
 
     return (
         <>
-            <div className="cookiebanner" data-consent={`${consent}`}>
+            <div className="cookiebanner" data-consent={`${hideBanner}`}>
                 <a href={lang === "en" ? "/privacy" : "/datenschutz"}>{bannerText.privacyAnchor}</a>
                 <span>{lang === "en"
                     ? "This site uses cookies for a better experience. By using this website, you agree to the website's cookie policy."

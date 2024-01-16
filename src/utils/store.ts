@@ -8,7 +8,7 @@ type CookieModal = {
 // store for cookie settings modal
 export const useCookieModal = create<CookieModal>((set) => ({
     open: false,
-    setOpen: (bool) => set((state) => ({ open: bool }))
+    setOpen: (bool) => set((state) => ({ open: bool })),
 }))
 
 export const setOpen = (bool: boolean) => {

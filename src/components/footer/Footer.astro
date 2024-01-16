@@ -6,7 +6,7 @@ const { lang }: Props = Astro.props;
 ---
 
 <footer>
-    <span>&copy; 2023 - TMP</span>
+    <span>&copy; 2023-2024 TMP</span>
     <a
         href={lang === "en" ? "/privacy" : "datenschutz"}
         aria-label={lang === "en"
@@ -14,5 +14,13 @@ const { lang }: Props = Astro.props;
             : "Gehe zur Datenschutz Seite"}
     >
         {lang === "en" ? "Data privacy" : "Datenschutz"}
+    </a>
+    <a
+        href={lang === "en" ? "/legal" : "/impressum"}
+        aria-label={lang === "en"
+            ? "Go to Data privacy page"
+            : "Gehe zur Datenschutz Seite"}
+    >
+        {lang === "en" ? "Legal" : "Impressum"}
     </a>
 </footer>
