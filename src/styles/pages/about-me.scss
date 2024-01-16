@@ -78,12 +78,13 @@ body {
             top: -3.2rem;
         }
 
-        span {
+        a {
             margin-top: 1rem;
             letter-spacing: 1px;
+            color: $midnight;
 
-            a {
-                text-decoration: none;
+            &:visited {
+                color: $midnight;
             }
         }
 

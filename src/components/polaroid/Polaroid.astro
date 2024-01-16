@@ -2,19 +2,24 @@
 import type { Locale } from "@utils/utils";
 
 type Props = {
-    lang: Locale
-}
-const {lang}: Props = Astro.props
+    lang: Locale;
+};
+const { lang }: Props = Astro.props;
 ---
 
 <div class="polaroid-container">
     <div class="polaroid">
-        <img src="/icons/paperclip.svg" width="50" class="polaroid-paperclip" />
         <img
+            class="polaroid-paperclip"
+            src="/icons/paperclip.svg"
+            width="50"
+            alt={lang === "en" ? "Paperclip" : "Büroklammer"}
+        />
+        <img
+            class="polaroid-image"
             src="https://res.cloudinary.com/dzvrnl80x/image/upload/v1705365310/my-portfolio/polaroid.webp"
             alt={lang === "en" ? "Photo at workplace" : "Foto am Arbeitsplatz"}
-            class="polaroid-image"
         />
-        <span><a href="/work">WORK</a></span>
+        <a href="/work">WORK</a>
     </div>
 </div>
