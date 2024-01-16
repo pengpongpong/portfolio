@@ -2,7 +2,6 @@ $kalam: "Kalam", sans-serif; //400
 
 $sm-screen: 500px;
 $md-screen: 750px;
-$md2-screen: 1000px;
 $lg-screen: 1200px;
 $lg2-screen: 1600px;
 $xl-screen: 2000px;
@@ -31,6 +30,7 @@ body {
 
 .about {
     width: 100%;
+    margin-top: 1rem;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -41,112 +41,117 @@ body {
     overflow: hidden;
 
     & > section {
-        max-width: 60vw;
-        margin: 2rem 0;
-        padding: 2rem;
+        max-width: 100%;
+        margin-top: 1rem;
+        padding: 2rem 1rem;
         background-color: $light-blue;
         @include mixin.containerShadow(4px);
     }
 
     h1 {
         margin-bottom: 0.5rem;
-        font-size: 1rem;
+        font-size: 1.2em;
     }
 
     p {
-        max-width: 95%;
-        margin: 0 auto;
-        &:nth-child(3) {
-            margin: 2rem auto;
+        font-size: 1.2rem;
+        &:nth-child(2) {
+            margin: 1rem auto;
         }
     }
 
-    div {
-        width: 100%;
-        overflow-x: visible;
-    }
+    .polaroid {
+        width: fit-content;
+        margin: 4rem;
+        padding: 1rem 1rem 2rem 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: #f9faf5;
+        transform: rotate(15deg);
 
-    img {
-        width: 20%;
-        margin: 4rem 0;
-        font-style: italic;
+        &-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            position: relative;
+            top: -3.2rem;
+        }
 
-        @include mixin.containerShadow(4px);
-    }
+        span {
+            margin-top: 1rem;
+            letter-spacing: 1px;
+        }
 
-    // 2000
-    @media screen and (max-width: $xl-screen) {
-        & > section {
-            margin: 0;
-            max-width: 55vw;
+        &-paperclip {
+            position: absolute;
+            top: -15px;
+        }
+
+        &-image {
+            max-width: 100%;
         }
     }
 
-    // 1600
-    @media screen and (max-width: $lg2-screen) {
-        margin: 0 auto;
-        & > section {
-            max-width: 65vw;
-        }
+    // 500
+    @media screen and (min-width: $sm-screen) {
+        .polaroid {
+            &-container {
+                top: -2rem;
+            }
 
-        img {
-            margin: 3rem 0;
-            width: 25%;
         }
     }
-
-    //1200
-    @media screen and (max-width: $lg-screen) {
-        & > section {
-            max-width: 70vw;
-        }
-
-        img {
-            margin: 2rem 0;
-            width: 30%;
-        }
-    }
-
-    // 900
-    @media screen and (max-width: $md2-screen) {
+    // 750
+    @media screen and (min-width: $md-screen) {
         & > section {
             max-width: 90vw;
         }
 
-        img {
-            width: 35%;
-        }
-    }
+        .polaroid {
+            &-container {
+                top: -2rem;
+            }
 
-    // 750
-    @media screen and (max-width: $md-screen) {
-        padding: 0 2rem;
-        & > section {
-            max-width: 100%;
-        }
-
-        img {
-            width: 50%;
-        }
-    }
-
-    // 450
-    @media screen and (max-width: $sm-screen) {
-        padding: 0 1rem;
-
-        & > section {
-            padding: 1.5rem;
-        }
-
-        p {
-            font-size: 0.9rem;
-            &:nth-child(3) {
-                margin: 1rem auto;
+            &-image {
+                width: 40vw;
             }
         }
+    }
+    
+    // 1200
+    @media screen and (min-width: $lg-screen) {
+        & > section {
+            max-width: 900px;
+        }
 
-        img {
-            width: 70%;
+        .polaroid {
+            &-container {
+                max-width: 900px;
+                top: -2.5rem;
+            }
+
+            &-image {
+                width: 20vw;
+            }
+        }
+    }
+
+    // 1600
+    @media screen and (min-width: $lg2-screen) {
+        .polaroid {
+            &-container {
+                top: -2rem;
+            }
+        }
+    }
+    // 2000
+    @media screen and (min-width: $xl-screen) {
+        .polaroid {
+            &-container {
+                top: -1rem;
+            }
         }
     }
 }

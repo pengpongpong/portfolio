@@ -1,4 +1,4 @@
-$indie-flower: "Indie Flower", "Bradley Hand"; //400
+$kalam: "Kalam", sans-serif; //400
 
 $brown: #cd5c08;
 $turquoise: #3876bf;
@@ -69,9 +69,8 @@ body {
         align-items: center;
 
         span {
-            font-family: $indie-flower;
+            font-family: $kalam;
             font-size: 1rem;
-            font-weight: bold;
             text-transform: uppercase;
         }
 
@@ -87,8 +86,8 @@ body {
 
     p {
         width: 100%;
-        font-family: $indie-flower;
-        font-size: 1.2rem;
+        font-family: $kalam;
+        font-size: 1.15rem;
         line-height: 2.5rem;
     }
 

@@ -38,8 +38,8 @@ export const FolderContainer = ({ data, lang }: FolderCanvasProps) => {
                     color="#FAFDFE"
                 >
                     {lang === "en"
-                        ? `Click on folder name to open \nor just drag around`
-                        : `Klicke auf den Ordnernamen,\num ihn zu öffnen oder\nziehe am Ordner herum`}
+                        ? `Click on ${data[offset / 6].title ?? "folder name"} to open project, \nplay the video or simply drag the folder around`
+                        : `Klicke auf ${data[offset / 6].title ?? "Ordnernamen"}, um das Projekt zu öffnen,\nspiele das Video ab oder ziehe einfach nur am Ordner herum`}
                 </Text>
             </Float>
             <A11y

@@ -1,10 +1,8 @@
 ---
-import { GridCanvas } from "@components/grid-image/GridCanvas";
 import MainLayout from "@layouts/MainLayout.astro";
 import Footer from "@components/footer/Footer.astro";
 import Navbar from "@components/navbar/Navbar.astro";
-
-import { AboutMeImage } from "@components/about-me-image/AboutMeImage";
+import Polaroid from "@components/polaroid/Polaroid.astro";
 
 import "@styles/pages/about-me.scss";
 
@@ -25,40 +23,27 @@ const seo = {
 
 <MainLayout seo={seo} lang="en">
     <Navbar lang="en" />
-    <div>
-        <GridCanvas
-            client:load
-            lang="en"
-            url="https://res.cloudinary.com/dzvrnl80x/image/upload/v1700324864/my-portfolio/banner-about_me.webp"
-        />
-    </div>
     <main class="about">
         <section>
             <h1>Hey! I'm Phuong,</h1>
             <p>
-                a passionate web developer based in the beautiful land of
-                Austria. My journey into the tech world began in the spring of
-                2022, and since then, I've been on an exciting independent
-                learning adventure.
+                a passionate web developer with a sense for
+                aesthetic design and user-friendly functionalities. My expertise
+                in the latest technologies allows me to craft digital realms
+                that are not only visually appealing but also thoughtfully
+                functional.
             </p>
             <p>
-                Prior to diving into the realm of web development, I worked as a
-                paramedic, a role that instilled in me the significance of quick
-                thinking, precision, and adaptability. These skills have proven
-                to be incredibly valuable in my tech journey. While my paths may
-                have shifted from saving lives to creating digital experiences,
-                my commitment to excellence remains steadfast.
-            </p>
-            <p>
-                I'm a firm believer that technology can shape the future in
-                incredible ways, and I'm excited to be a part of that journey. I
-                enjoy every aspect of web development, and I'm committed to
-                creating solutions that make a difference. Join me on this
-                exciting tech adventure, and let's build a better digital world
-                together!
+                From conception to implementation, I work on custom web
+                applications that seamlessly integrate into the modern online
+                world. I not only master the intricacies of responsive design,
+                backend development, and API integration, but I also approach my
+                craft with a comprehensive perspective, paying attention to
+                every detail.
             </p>
         </section>
-        <AboutMeImage client:load />
+        <Polaroid />
     </main>
     <Footer lang="en" />
 </MainLayout>
+__todo__/about-me-image/AboutMeImage__todo__/grid-image/GridCanvas

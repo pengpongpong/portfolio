@@ -3,8 +3,6 @@
 .paper iframe {
     width: 740px;
     height: 1100px;
-
-    @include mixin.containerShadow(8px);
 }
 
 html,

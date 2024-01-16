@@ -1,10 +1,8 @@
 ---
-import { GridCanvas } from "@components/grid-image/GridCanvas";
 import MainLayout from "@layouts/MainLayout.astro";
 import Footer from "@components/footer/Footer.astro";
 import Navbar from "@components/navbar/Navbar.astro";
-
-import { AboutMeImage } from "@components/about-me-image/AboutMeImage";
+import Polaroid from "@components/polaroid/Polaroid.astro";
 
 import "@styles/pages/about-me.scss";
 
@@ -25,44 +23,28 @@ const seo = {
 
 <MainLayout seo={seo} lang="de">
     <Navbar lang="de" />
-    <div>
-        <GridCanvas
-            client:idle
-            lang="de"
-            url="https://res.cloudinary.com/dzvrnl80x/image/upload/v1700324864/my-portfolio/banner-about_me.webp"
-        />
-    </div>
-
     <main class="about">
         <section>
             <h1>Hey! Ich bin Phuong,</h1>
             <p>
-                ein leidenschaftlicher Webentwickler aus dem schönen Österreich.
-                Meine Reise in die Welt der Technik begann im Frühjahr 2022, und
-                seitdem befinde ich mich auf einem spannenden, unabhängigen
-                Lernabenteuer.
+                ein leidenschaftlicher Webentwickler mit einem Sinn für
+                ästhetisches Design und benutzerfreundliche Funktionen. Meine
+                Expertise in den neuesten Technologien ermöglicht es mir,
+                digitale Welten zu gestalten, die nicht nur visuell ansprechend,
+                sondern auch durchdacht funktional sind.
             </p>
             <p>
-                Bevor ich in die Welt der Webentwicklung eintauchte, arbeitete
-                ich im Rettungsdienst, eine Tätigkeit, die mir die Bedeutung von
-                schnellem Denken, Präzision und Anpassungsfähigkeit vermittelte.
-                Diese Fähigkeiten haben sich in meinem Weg in der Webentwicklung
-                als äußerst wertvoll erwiesen. Auch wenn sich mein Weg von der
-                Rettung von Menschenleben zur Schaffung digitaler Erlebnisse
-                verlagert hat, ist mein Engagement für hervorragende Leistungen
-                ungebrochen.
-            </p>
-            <p>
-                Ich bin der festen Überzeugung, dass die Technologie die Zukunft
-                auf unglaubliche Weise gestalten kann, und ich freue mich
-                darauf, Teil dieser Reise zu sein. Ich genieße jeden Aspekt der
-                Web-Entwicklung und bin bestrebt, Lösungen zu schaffen, die
-                einen Unterschied machen. Begleiten Sie mich auf diesem
-                aufregenden technischen Abenteuer, und lassen Sie uns gemeinsam
-                eine bessere digitale Welt schaffen!
+                Von der Idee bis zur Umsetzung arbeite ich an individuellen
+                Webanwendungen, die sich nahtlos in die moderne Online-Welt
+                einfügen. Nicht nur beherrsche ich die Feinheiten von
+                responsivem Design, Backend-Entwicklung und der Integration von
+                APIs, sondern ich betrachte mein Handwerk auch mit einem
+                umfassenden Blick für jedes Detail.
             </p>
         </section>
-        <AboutMeImage client:load />
+
+        <Polaroid />
     </main>
     <Footer lang="de" />
 </MainLayout>
+__todo__/about-me-image/AboutMeImage__todo__/grid-image/GridCanvas
