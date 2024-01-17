@@ -53,13 +53,13 @@ export const Folder = ({ position, title, urlProject, urlVideo, screenWidth, lan
             snap={{ mass: 4, tension: 400 }}
             enabled={!folderOpen && position.x === 0}
         >
-            <Float
+            {/* <Float
                 speed={1}
                 rotationIntensity={.5}
                 floatIntensity={.1}
                 floatingRange={[-.005, .005]}
                 enabled={!folderOpen}
-            >
+            > */}
                 <motion.group
                     initial={{ x: position.x }}
                     animate={{ x: position.x }}
@@ -138,7 +138,7 @@ export const Folder = ({ position, title, urlProject, urlVideo, screenWidth, lan
                         </motion.group>
                     </A11y>
                 </motion.group>
-            </Float>
+            {/* </Float> */}
         </PresentationControls >
     )
 }

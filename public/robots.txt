@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /legal
+Disallow: /impressum
+Disallow: /datenschutz
+Disallow: /privacy
 
 Sitemap: https://tranmp.dev/sitemap-index.xml
