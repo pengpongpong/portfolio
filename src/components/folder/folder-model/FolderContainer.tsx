@@ -26,7 +26,7 @@ export const FolderContainer = ({ data, lang }: FolderCanvasProps) => {
             de: `Klicke auf ${data[offset / 6].title ?? "Ordnernamen"}, um das Projekt zu öffnen,\nspiele das Video ab oder ziehe einfach nur am Ordner herum`
         }
         : {
-            en: `Click on ${data[offset / 6].title ?? "folder name"} to open project, \nplay the video or simply drag the folder around`,
+            en: `Click on ${data[offset / 6].title ?? "folder name"} to open project, \nplay the video or \nsimply drag the folder around`,
             de: `Klicke auf ${data[offset / 6].title ?? "Ordnernamen"},\n um das Projekt zu öffnen,\nspiele das Video ab oder\n ziehe einfach nur am Ordner herum`
         }
 

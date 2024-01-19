@@ -158,8 +158,10 @@ export const Particles = () => {
   particleRef.current = environment
 
   useEffect(() => {
+    if (!particleRef.current) return 
+
     const prevMarginTop = document.body.style.getPropertyValue("--distanceMarginTop").split("px")[0]
-    const currMarginTop = particleRef.current?.getDistanceTop()!
+    const currMarginTop = particleRef.current.getDistanceTop()
 
     if (Number(prevMarginTop) !== currMarginTop) {
       document.body.style.setProperty("--distanceMarginTop", currMarginTop + "px")

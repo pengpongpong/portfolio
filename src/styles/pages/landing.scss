@@ -55,7 +55,7 @@ body {
 
     @include mixin.userSelect(none);
     @include mixin.containerShadow(4px);
-    @include applyMarginTop(calc(#{var(--distanceMarginTop, 200px)} + 4rem));
+    @include applyMarginTop(calc(#{var(--distanceMarginTop, 350px)} + 4rem));
 
     &__info {
         width: fit-content;
@@ -167,31 +167,31 @@ body {
 
     // 2000
     @media screen and (max-width: $xl-screen) {
-        @include applyMarginTop(#{var(--distanceMarginTop, 400px)});
+        @include applyMarginTop(#{var(--distanceMarginTop, 320px)});
     }
 
     // 1600
     @media screen and (max-width: $lg-screen) {
-        @include applyMarginTop(#{var(--distanceMarginTop, 300px)});
+        @include applyMarginTop(#{var(--distanceMarginTop, 260px)});
     }
 
     // 1200
     @media screen and (max-width: $md2-screen) {
         max-width: 750px;
-        @include applyMarginTop(#{var(--distanceMarginTop, 300px)});
+        @include applyMarginTop(#{var(--distanceMarginTop, 250px)});
     }
 
     // 750
     @media screen and (max-width: $md-screen) {
         max-width: 550px;
-        @include applyMarginTop(#{var(--distanceMarginTop, 300px)});
+        @include applyMarginTop(#{var(--distanceMarginTop, 240px)});
     }
 
     // 450
     @media screen and (max-width: $sm-screen) {
         margin: auto 2rem 2rem 2rem;
 
-        @include applyMarginTop(clamp(200px, var(--distanceMarginTop, 220px), 230px));
+        @include applyMarginTop(clamp(200px, var(--distanceMarginTop, 230px), 230px));
     }
 
     // 411

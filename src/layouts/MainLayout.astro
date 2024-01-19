@@ -5,6 +5,7 @@ import GoogleAnalytics from "@components/google-analytics/GoogleAnalytics.astro"
 
 import "@styles/global.scss";
 import type { Locale } from "@utils/utils";
+import { ViewTransitions } from "astro:transitions";
 
 type Props = {
     preventScreenRotate?: boolean;
@@ -32,7 +33,10 @@ export type Seo = {
 };
 ---
 
-<html lang={lang === "en" ? "en" : "de"} data-preventScreenRotate={`${preventScreenRotate}`}>
+<html
+    lang={lang === "en" ? "en" : "de"}
+    data-preventScreenRotate={`${preventScreenRotate}`}
+>
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -111,9 +115,14 @@ export type Seo = {
                 />
             ) : null
         }
+
+        <ViewTransitions />
     </head>
-    <body>
-        <ScreenRotateBanner lang={lang} preventScreenRotate={`${preventScreenRotate}`} />
+    <body transition:animate="fade">
+        <ScreenRotateBanner
+            lang={lang}
+            preventScreenRotate={`${preventScreenRotate}`}
+        />
         <slot />
         <CookieBanner
             lang={lang}

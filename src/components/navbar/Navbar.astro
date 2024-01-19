@@ -40,32 +40,35 @@ const navData = lang === "en" ? navDataEN : navDataDE;
       <a
         href={navData.home.url}
         aria-label={lang === "en" ? "Go to home page" : "Gehe zur Home Seite"}
-        >{navData.home.title}</a
-      >
+        >{navData.home.title}
+      </a>
     </li>
     <li class={pathname === navData.work.url ? "active" : ""}>
       <a
         href={navData.work.url}
         aria-label={lang === "en"
           ? "Go to work page"
-          : "Gehe zur Projekte Seite"}>{navData.work.title}</a
-      >
+          : "Gehe zur Projekte Seite"}
+        >{navData.work.title}
+      </a>
     </li>
     <li class={pathname === navData.aboutMe.url ? "active" : ""}>
       <a
         href={navData.aboutMe.url}
         aria-label={lang === "en"
           ? "Go to about me page"
-          : "Gehe zur über mich Seite"}>{navData.aboutMe.title}</a
-      >
+          : "Gehe zur über mich Seite"}
+        >{navData.aboutMe.title}
+      </a>
     </li>
     <li class={pathname === navData.contact.url ? "active" : ""}>
       <a
         href={navData.contact.url}
         aria-label={lang === "en"
           ? "Go to contact page"
-          : "Gehe zur Kontakt Seite"}>{navData.contact.title}</a
-      >
+          : "Gehe zur Kontakt Seite"}
+        >{navData.contact.title}
+      </a>
     </li>
   </ul>
 
