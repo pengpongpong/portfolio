@@ -5,11 +5,12 @@ $turquoise: #3876bf;
 $white: #fafdfe;
 $midnight: #181d31;
 
-$xs-screen: 411px;
+$xs-screen: 370px;
+$xs2-screen: 395px;
 $sm-screen: 450px;
 $md-screen: 750px;
 $md2-screen: 1200px;
-$lg-screen: 1600px;
+$lg-screen: 1750px;
 $xl-screen: 2000px;
 
 @use "@styles/mixin";
@@ -18,12 +19,6 @@ root {
     --widthModel: 850px;
     --distanceMarginTop: 80px;
     --actual: clamp(200px, var(--distanceMarginTop), 250px);
-}
-
-@mixin applyMarginTop($distance: null) {
-    @if $distance {
-        margin-top: calc(#{$distance} + 35px);
-    }
 }
 
 @mixin showTextGradient() {
@@ -42,10 +37,10 @@ body {
 }
 
 .introduction {
-    margin: 0 auto 2rem auto;
-    padding: 1.4rem 2rem 2rem 2rem;
+    margin: 35rem auto 2rem auto;
+    padding: 1.2rem 1rem 1rem 1rem;
     width: fit-content;
-    max-width: 850px;
+    max-width: 900px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -55,28 +50,27 @@ body {
 
     @include mixin.userSelect(none);
     @include mixin.containerShadow(4px);
-    @include applyMarginTop(calc(#{var(--distanceMarginTop, 350px)} + 4rem));
 
     &__info {
         width: fit-content;
         height: 1rem;
         position: absolute;
-        top: 0.5rem;
-        right: 1rem;
+        top: 0.1rem;
+        right: 0.5rem;
         display: flex;
         justify-content: center;
         align-items: center;
 
         span {
             font-family: $kalam;
-            font-size: 1rem;
+            font-size: .6rem;
             text-transform: uppercase;
         }
 
         svg {
-            width: 50px;
+            width: 40px;
             position: relative;
-            top: -1rem;
+            top: -1.1rem;
             transform: scaleX(-1) rotate(-80deg);
             filter: invert(1);
             mix-blend-mode: difference;
@@ -84,7 +78,6 @@ body {
     }
 
     p {
-        width: 100%;
         font-family: $kalam;
         font-size: 1.15rem;
         line-height: 2.5rem;
@@ -167,41 +160,46 @@ body {
 
     // 2000
     @media screen and (max-width: $xl-screen) {
-        @include applyMarginTop(#{var(--distanceMarginTop, 320px)});
+        margin-top: 28rem;
     }
 
     // 1600
     @media screen and (max-width: $lg-screen) {
-        @include applyMarginTop(#{var(--distanceMarginTop, 260px)});
+        margin-top: 22rem;
     }
 
     // 1200
     @media screen and (max-width: $md2-screen) {
         max-width: 750px;
-        @include applyMarginTop(#{var(--distanceMarginTop, 250px)});
+        margin-top: 20rem;
     }
 
     // 750
     @media screen and (max-width: $md-screen) {
         max-width: 550px;
-        @include applyMarginTop(#{var(--distanceMarginTop, 240px)});
     }
 
     // 450
     @media screen and (max-width: $sm-screen) {
-        margin: auto 2rem 2rem 2rem;
-
-        @include applyMarginTop(clamp(200px, var(--distanceMarginTop, 230px), 230px));
-    }
-
-    // 411
-    @media screen and (max-width: $xs-screen) {
+        margin: 15rem 1.5rem 1.5rem 1.5rem;
         p {
-            font-size: .9rem;
+            font-size: 0.9rem;
             line-height: 2.1rem;
         }
+    }
 
-        @include applyMarginTop(clamp(200px, var(--distanceMarginTop, 210px), 230px));
+    // 395
+    @media screen and (max-width: $xs2-screen) {
+        margin-top: 14rem;
+    }
+
+    // 370
+    @media screen and (max-width: $xs-screen) {
+        margin-top: 12rem;
+        p {
+            font-size: 0.9rem;
+            line-height: 2.1rem;
+        }
     }
 }
 

@@ -1,5 +1,4 @@
 $rubik: "Rubik", sans-serif; //400
-$playpen-sans: "Playpen Sans", "Comic Sans MS"; //400
 
 $lg-screen: 1200px;
 
@@ -22,13 +21,9 @@ body {
     justify-content: center;
     align-items: center;
     background-color: $light-blue;
+    font-family: $rubik;
 
     @include mixin.containerShadow(4px);
-
-    h1,
-    h2 {
-        font-family: $rubik;
-    }
 
     h1 {
         margin-bottom: 2rem;
@@ -46,7 +41,6 @@ body {
 
     p {
         margin: 0 0 1.5rem 1rem;
-        font-family: $playpen-sans;
     }
 
     a {
@@ -57,7 +51,7 @@ body {
     }
 
     @media screen and (max-width: $lg-screen) {
-        margin: 2rem 1.3rem;
+        margin: 2rem 1.5rem;
         padding: 1rem;
 
         h2 {

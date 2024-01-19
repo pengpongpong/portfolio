@@ -40,24 +40,24 @@ export const Particles = () => {
       camera.position.y = -4.5;
       break;
 
-    case sizes.width > 1600 && sizes.width <= 2000 && sizes.height < 850: // 1600 - 2000 landscape
+    case sizes.width > 1750 && sizes.width <= 2000 && sizes.height < 850: // 1750 - 2000 landscape
       amount = 600;
       textSize = 2.8;
       camera.position.y = -1;
       break;
 
-    case sizes.width > 1600 && sizes.width <= 2000: // 1600 - 2000
+    case sizes.width > 1750 && sizes.width <= 2000: // 1750 - 2000
       amount = 600;
       textSize = 2.4;
       camera.position.y = -3.9;
       break;
 
-    case sizes.width > 1200 && sizes.width <= 1600 && sizes.height < 800: // 1200 - 1600 landscape
+    case sizes.width > 1200 && sizes.width <= 1750 && sizes.height < 800: // 1200 - 1750 landscape
       amount = 600;
       textSize = 2.7;
       camera.position.y = -2;
       break;
-    case sizes.width > 1200 && sizes.width <= 1600: // 1200 - 1600
+    case sizes.width > 1200 && sizes.width <= 1750: // 1200 - 1750
       amount = 600;
       textSize = 2.2;
       camera.position.y = -4.4;
@@ -114,13 +114,13 @@ export const Particles = () => {
     case sizes.width > 390 && sizes.width <= 411: // 390 - 411
       amount = 400;
       textSize = 1;
-      camera.position.y = -5.5;
+      camera.position.y = -5;
       break;
       
     case sizes.width > 360 && sizes.width <= 390: // 360 - 390
       amount = 400;
       textSize = 1;
-      camera.position.y = -5;
+      camera.position.y = -5.5;
       break;
 
     case sizes.width > 320 &&  sizes.width <= 360: // 320 - 360

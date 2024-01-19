@@ -3,9 +3,9 @@ $sm-screen: 500px;
 $lg-screen: 1200px;
 
 $midnight: #181d31;
-// $blue: rgb(163, 195, 249);
-$darkblue: #6c94ca;
 $light-blue: #fafdfe;
+
+$line-size: 2px;
 
 $playpen-sans: "Playpen Sans", "Comic Sans MS"; //400
 
@@ -107,7 +107,7 @@ $playpen-sans: "Playpen Sans", "Comic Sans MS"; //400
     .box-right {
         width: 100%;
         height: 3.2rem;
-        border-bottom: 1px solid $light-blue;
+        border-bottom: $line-size solid $light-blue;
 
         @media screen and (max-width: $sm-screen) {
             height: 2.8rem;
@@ -129,7 +129,7 @@ $playpen-sans: "Playpen Sans", "Comic Sans MS"; //400
             display: flex;
             justify-content: center;
             align-items: center;
-            border-bottom: 1px solid $light-blue;
+            border-bottom: $line-size solid $light-blue;
             white-space: nowrap;
             cursor: pointer;
             list-style: none;
@@ -162,14 +162,14 @@ $playpen-sans: "Playpen Sans", "Comic Sans MS"; //400
         }
 
         .active {
-            border-top: 1px solid $light-blue;
-            border-left: 1px solid $light-blue;
-            border-right: 1px solid $light-blue;
+            border-top: $line-size solid $light-blue;
+            border-left: $line-size solid $light-blue;
+            border-right: $line-size solid $light-blue;
             border-bottom: none;
             border-top-left-radius: 8px;
             border-top-right-radius: 8px;
             background-color: transparent;
-            box-shadow: 3px 0 0 0 $light-blue;
+            // box-shadow: 3px 0 0 0 $light-blue;
 
             a {
                 color: $light-blue;
