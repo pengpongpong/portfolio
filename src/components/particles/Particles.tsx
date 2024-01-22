@@ -60,7 +60,7 @@ export const Particles = () => {
     case sizes.width > 1200 && sizes.width <= 1750: // 1200 - 1750
       amount = 600;
       textSize = 2.2;
-      camera.position.y = -4.4;
+      camera.position.y = -4;
       break;
 
     case sizes.width > 750 && sizes.width <= 1200 && sizes.height < 650: // 750 - 1200 landscape
