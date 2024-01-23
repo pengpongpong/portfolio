@@ -7,15 +7,16 @@ type Props = {
 };
 
 const { lang, preventScreenRotate = "false" }: Props = Astro.props;
-
 ---
 
-<div id="screenRotation" data-preventScreenRotate={preventScreenRotate}>
-    <h1>
-        {
-            lang === "en"
-                ? "Please switch to portrait format"
-                : "Bitte auf Hochformat wechseln"
-        }
-    </h1>
-</div>
+{
+    preventScreenRotate ? (
+        <div id="screenRotation" data-preventScreenRotate={preventScreenRotate}>
+            <h1>
+                {lang === "en"
+                    ? "Please switch to portrait format"
+                    : "Bitte auf Hochformat wechseln"}
+            </h1>
+        </div>
+    ) : null
+}

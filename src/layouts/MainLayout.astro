@@ -42,8 +42,22 @@ export type Seo = {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="generator" content={Astro.generator} />
 
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+            rel="preconnect"
+            href="https://fonts.googleapis.com"
+            crossorigin
+        />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+        {
+            pathname === "/ueber-mich" || pathname === "/about-me" ? (
+                <link
+                    rel="preload"
+                    as="image"
+                    href="https://res.cloudinary.com/dzvrnl80x/image/upload/v1705365310/my-portfolio/polaroid.webp"
+                />
+            ) : null
+        }
 
         <link
             rel="apple-touch-icon"
