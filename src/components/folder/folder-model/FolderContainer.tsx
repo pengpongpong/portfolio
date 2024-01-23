@@ -29,7 +29,7 @@ export const FolderContainer = ({ data, lang }: FolderCanvasProps) => {
                 floatingRange={[.01, .02]}
             >
                 <Text
-                    font="https://res.cloudinary.com/dzvrnl80x/raw/upload/v1705972917/my-portfolio/ubuntu_rg.ttf"
+                    font="https://res.cloudinary.com/dzvrnl80x/raw/upload/v1705975333/my-portfolio/rubik_rg.ttf"
                     fontSize={.1}
                     lineHeight={1.5}
                     outlineWidth={.003}
