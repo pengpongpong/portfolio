@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Kalam&family=Playpen+Sans&family=Rubik&family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalam&family=Playpen+Sans&family=Rubik&family=Ubuntu&display=swap');
 
 $midnight: #181d31;
 $light-blue: #fafdfe;
@@ -68,8 +68,9 @@ main {
     color: $light-blue;
     font-family: $playpen-sans;
 
-    h1 {
+    span {
         letter-spacing: 1px;
+        font-size: 2rem;
     }
 
     &[data-loaded="true"] {
@@ -77,7 +78,7 @@ main {
     }
 
     @media screen and (max-width: $md-screen) {
-        font-size: 0.6rem;
+        font-size: 1rem;
     }
 }
 

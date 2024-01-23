@@ -7,7 +7,7 @@ $light-blue: #fafdfe;
 
 $line-size: 2px;
 
-$playpen-sans: "Playpen Sans", "Comic Sans MS"; //400
+$rubik: "Rubik", sans-serif; //400
 
 @use "@styles/mixin";
 
@@ -17,8 +17,7 @@ $playpen-sans: "Playpen Sans", "Comic Sans MS"; //400
     display: flex;
     position: relative;
     z-index: 10;
-    font-family: $playpen-sans;
-    // background-color: transparent;
+    font-family: $rubik;
     @include mixin.userSelect(none);
 
     &__socials {
@@ -153,7 +152,7 @@ $playpen-sans: "Playpen Sans", "Comic Sans MS"; //400
         }
 
         a {
-            padding: 1rem 2rem;
+            padding: 1rem 1.5rem;
             color: $light-blue;
             text-decoration: none;
             &:visited {
@@ -169,7 +168,6 @@ $playpen-sans: "Playpen Sans", "Comic Sans MS"; //400
             border-top-left-radius: 8px;
             border-top-right-radius: 8px;
             background-color: transparent;
-            // box-shadow: 3px 0 0 0 $light-blue;
 
             a {
                 color: $light-blue;

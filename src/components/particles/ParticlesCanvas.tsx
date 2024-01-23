@@ -18,18 +18,17 @@ const a11yStyle = {
 }
 
 const ParticlesCanvas = ({ lang }: Props) => {
-	const { progress } = useProgress()
-	const [loaded, setLoaded] = useState(false)
+	const { total, loaded } = useProgress()
+	const [loadedState, setLoadedState] = useState(false)
 
-	// handle loaded on created
+	// handle loadedState on created
 	const handleCreated = () => {
-		setLoaded(true)
+		setLoadedState(true)
 	}
-
 
 	return (
 		<>
-			<Loading progress={progress} lang={lang} loaded={loaded} />
+			<Loading lang={lang} loaded={loadedState && total === loaded} />
 			<CanvasContainer
 				flat
 				camera={{

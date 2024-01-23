@@ -20,16 +20,6 @@ export const FolderContainer = ({ data, lang }: FolderCanvasProps) => {
 
     const { size } = useThree()
 
-    const text = size.width > 1000
-        ? {
-            en: `Click on ${data[offset / 6].title ?? "folder name"} to open project, \nplay the video or simply drag the folder around`,
-            de: `Klicke auf ${data[offset / 6].title ?? "Ordnernamen"}, um das Projekt zu öffnen,\nspiele das Video ab oder ziehe einfach nur am Ordner herum`
-        }
-        : {
-            en: `Click on ${data[offset / 6].title ?? "folder name"} to open project, \nplay the video or \nsimply drag the folder around`,
-            de: `Klicke auf ${data[offset / 6].title ?? "Ordnernamen"},\n um das Projekt zu öffnen,\nspiele das Video ab oder\n ziehe einfach nur am Ordner herum`
-        }
-
     return (
         <>
             <Float
@@ -39,17 +29,18 @@ export const FolderContainer = ({ data, lang }: FolderCanvasProps) => {
                 floatingRange={[.01, .02]}
             >
                 <Text
-                    font="https://res.cloudinary.com/dzvrnl80x/raw/upload/v1698667842/my-portfolio/IndieFlower-Regular.ttf"
-                    fontSize={.14}
+                    font="https://res.cloudinary.com/dzvrnl80x/raw/upload/v1705972917/my-portfolio/ubuntu_rg.ttf"
+                    fontSize={.1}
+                    lineHeight={1.5}
                     outlineWidth={.003}
-                    position={[size.width > 1000 ? -.2 : 0, size.width > 1000 ? 2.08 : 1.5, 1]}
+                    position={[size.width > 1000 ? -.2 : 0, size.width > 1000 ? 2.1 : 1.5, 1]}
                     rotation={[-Math.PI * 0, 0, 0]}
                     textAlign="center"
                     color="#FAFDFE"
                 >
                     {lang === "en"
-                        ? text.en
-                        : text.de}
+                        ? `Click on ${data[offset / 6].title ?? "folder name"} to open project, \nor click on play to see the video`
+                        : `Klicke auf ${data[offset / 6].title ?? "Ordnernamen"}, um das Projekt zu öffnen,\noder klicke auf Play um das Video zu sehen`}
                 </Text>
             </Float>
             <A11y

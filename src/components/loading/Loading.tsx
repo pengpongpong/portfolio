@@ -1,12 +1,11 @@
 import type { Props } from "@utils/utils"
 
 type LoadingProps = {
-    progress: number,
     loaded: boolean
 } & Props
 
 // suspense loading text for threejs models
-export const Loading = ({ lang, progress, loaded }: LoadingProps) => {
+export const Loading = ({ lang, loaded }: LoadingProps) => {
     return (
         <div className="loading" data-loaded={`${loaded}`}>
 
@@ -42,7 +41,7 @@ export const Loading = ({ lang, progress, loaded }: LoadingProps) => {
                     </g>
                 </g>
             </svg>
-            <h1 >{lang === "en" ? "Loading" : "Ladet"}... {progress.toFixed(0)}%</h1>
+            <span>{lang === "en" ? "Loading" : "Ladet"}...</span>
         </div>
     )
 }

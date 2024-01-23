@@ -1,4 +1,4 @@
-$indie-flower: "Indie Flower", "Bradley Hand"; //400
+$rubik: "Rubik", sans-serif; //400
 
 $lg-screen: 1200px;
 
@@ -11,11 +11,12 @@ $light-blue: #fafdfe;
 
 footer {
     width: 100%;
+    padding: .2rem;
     position: relative;
     bottom: 0;
     left: 0;
     z-index: 10;
-    font-size: 1.5rem;
+    font-family: $rubik;
     background-color: $midnight;
 
     @include mixin.userSelect(none);
@@ -27,15 +28,12 @@ footer {
         left: 1rem;
         transform: rotate(-90deg);
         transform-origin: left;
-        font-family: $indie-flower;
         color: $light-blue;
     }
 
     a {
         position: absolute;
         bottom: 0.8rem;
-
-        font-family: $indie-flower;
         color: $light-blue;
 
         &:visited {
@@ -43,11 +41,17 @@ footer {
         }
 
         &:nth-child(1 of a) {
-            left: 2rem;
+            top: -.3rem;
+            left: 1.7rem;
+        }
+
+        &:nth-child(2 of a) {
+            top: -.3rem;
+            left: 8rem;
         }
     }
 
     @media screen and (max-width: $lg-screen) {
-        font-size: 1.5rem;
+        // font-size: 1.5rem;
     }
 }

@@ -17,19 +17,19 @@ export type FolderCanvasProps = {
 } & Props
 
 export const FolderCanvas = ({ data, lang }: FolderCanvasProps) => {
-  const { progress } = useProgress()
-  const [loaded, setLoaded] = useState(false)
+  const { total, loaded } = useProgress()
+  const [loadedState, setLoadedState] = useState(false)
 
-  // handle loaded on created and set background color
+  // handle loadedState on created and set background color
   const handleCreated = ({ scene }: { scene: Scene }) => {
     scene.background = new Color("#181D31")
 
-    setLoaded(true)
+    setLoadedState(true)
   }
 
   return (
     <>
-      <Loading progress={progress} lang={lang} loaded={loaded} />
+      <Loading lang={lang} loaded={loadedState && total === loaded} />
 
       <CanvasContainer
         flat
