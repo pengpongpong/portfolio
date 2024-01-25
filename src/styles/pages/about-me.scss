@@ -48,11 +48,11 @@ body {
 
     h1 {
         margin-bottom: 0.5rem;
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
     p {
-        font-size: 1.1rem;
+        font-size: 0.9rem;
         &:nth-child(2) {
             margin: 1rem auto;
         }
@@ -110,6 +110,10 @@ body {
     @media screen and (min-width: $md-screen) {
         & > section {
             max-width: 90vw;
+        }
+
+        p {
+            font-size: 1.15rem;
         }
 
         .polaroid {
