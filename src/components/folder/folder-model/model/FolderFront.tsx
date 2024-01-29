@@ -65,9 +65,9 @@ const LoadingText = ({ lang }: { lang: Locale }) => {
     return (
         <group>
             <Text
-                font="https://res.cloudinary.com/dzvrnl80x/raw/upload/v1698667803/my-portfolio/EduTASBeginner-Bold.ttf"
-                fontSize={.5}
-                position={[0, 2.5, 0.18]}
+                font="https://res.cloudinary.com/dzvrnl80x/raw/upload/v1705975333/my-portfolio/rubik_rg.ttf"
+                fontSize={.4}
+                position={[0, 2.45, 0.18]}
                 rotation={[0.05, 0, 0]}
                 textAlign="center"
                 color={"#fafdfe"}
@@ -136,8 +136,8 @@ export const FolderFront = ({ title, active, inView, urlVideo, lang }: FolderFro
             </Suspense>
 
             <Text
-                font="https://res.cloudinary.com/dzvrnl80x/raw/upload/v1698667803/my-portfolio/EduTASBeginner-Bold.ttf"
-                fontSize={.25}
+                font="https://res.cloudinary.com/dzvrnl80x/raw/upload/v1705975333/my-portfolio/rubik_rg.ttf"
+                fontSize={.20}
                 position={[1.9, 4.28, 0.24]}
                 textAlign="center"
                 color={"#fafdfe"}
